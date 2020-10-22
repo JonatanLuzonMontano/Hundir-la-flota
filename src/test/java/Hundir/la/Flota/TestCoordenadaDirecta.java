@@ -9,78 +9,151 @@ import org.junit.Test;
 public class TestCoordenadaDirecta {
 
 	@Test
-	public void test() throws IOException {
+	public void setCoordenada() throws IOException {
 		Directa d = new Directa(new MockTeclado("Coordenadas.txt"));
 		
+		//MAYUSCULAS
 		//valores límite 'x' y 'y'
 		
 		d.setCoordenada();
-		assertEquals(d.getCoordenadaX(), 'a');
-		assertEquals(d.getCoordenadaY(), 1);
+		assertEquals(d.getCoordenadaX(), 0);
+		assertEquals(d.getCoordenadaY(), 0);
 		
 		d.setCoordenada();
-		assertEquals(d.getCoordenadaX(), 'a');
-		assertEquals(d.getCoordenadaY(), 10);
+		assertEquals(d.getCoordenadaX(), 0);
+		assertEquals(d.getCoordenadaY(), 9);
 		
 		d.setCoordenada();
-		assertEquals(d.getCoordenadaX(), 'j');
-		assertEquals(d.getCoordenadaY(), 1);
+		assertEquals(d.getCoordenadaX(), 9);
+		assertEquals(d.getCoordenadaY(), 0);
 		
 		d.setCoordenada();
-		assertEquals(d.getCoordenadaX(), 'j');
-		assertEquals(d.getCoordenadaY(), 10);
+		assertEquals(d.getCoordenadaX(), 9);
+		assertEquals(d.getCoordenadaY(), 9);
 
 		d.setCoordenada();
-		assertEquals(d.getCoordenadaX(), null);
-		assertEquals(d.getCoordenadaY(), 1);
+		assertEquals(d.getCoordenadaX(), -1);
+		assertEquals(d.getCoordenadaY(), 0);
 		
 		d.setCoordenada();
-		assertEquals(d.getCoordenadaX(), null);
-		assertEquals(d.getCoordenadaY(), 1);
+		assertEquals(d.getCoordenadaX(), -1);
+		assertEquals(d.getCoordenadaY(), 0);
 		
 
 		d.setCoordenada();
-		assertEquals(d.getCoordenadaX(), 'a');
-		assertEquals(d.getCoordenadaY(), null);
+		assertEquals(d.getCoordenadaX(), 0);
+		assertEquals(d.getCoordenadaY(), -1);
 
 		d.setCoordenada();
-		assertEquals(d.getCoordenadaX(), 'a');
-		assertEquals(d.getCoordenadaY(), null);
+		assertEquals(d.getCoordenadaX(), 0);
+		assertEquals(d.getCoordenadaY(), -1);
 
 		d.setCoordenada();
-		assertEquals(d.getCoordenadaX(), null);
-		assertEquals(d.getCoordenadaY(), null);
+		assertEquals(d.getCoordenadaX(), -1);
+		assertEquals(d.getCoordenadaY(), -1);
 		
 		
 		
 		//valores límite 'x' y partición equivalente 'y'
 		
 		d.setCoordenada();
-		assertEquals(d.getCoordenadaX(), 'b');
+		assertEquals(d.getCoordenadaX(), 1);
 		assertEquals(d.getCoordenadaY(), 5);
 		
 		d.setCoordenada();
-		assertEquals(d.getCoordenadaX(), 'i');
-		assertEquals(d.getCoordenadaY(), 1);
+		assertEquals(d.getCoordenadaX(), 8);
+		assertEquals(d.getCoordenadaY(), 0);
 		
 		//valores límite 'y' y partición equivalente 'x'
 		
 		d.setCoordenada();
-		assertEquals(d.getCoordenadaX(), 'e');
+		assertEquals(d.getCoordenadaX(), 4);
 		assertEquals(d.getCoordenadaY(), 2);
 		
 		d.setCoordenada();
-		assertEquals(d.getCoordenadaX(), 'e');
+		assertEquals(d.getCoordenadaX(), 4);
 		assertEquals(d.getCoordenadaY(), 9);
 		
 		//partición equivalente 'x' y 'y'
 		
 		d.setCoordenada();
-		assertEquals(d.getCoordenadaX(), 'b');
+		assertEquals(d.getCoordenadaX(), 1);
 		assertEquals(d.getCoordenadaY(), 4);
 		
 		d.setCoordenada();
-		assertEquals(d.getCoordenadaX(), 'f');
+		assertEquals(d.getCoordenadaX(), 5);
+		assertEquals(d.getCoordenadaY(), 7);
+		
+		//minúsculas
+		//valores límite 'x' y 'y'
+		
+		d.setCoordenada();
+		assertEquals(d.getCoordenadaX(), 0);
+		assertEquals(d.getCoordenadaY(), 0);
+		
+		d.setCoordenada();
+		assertEquals(d.getCoordenadaX(), 0);
+		assertEquals(d.getCoordenadaY(), 9);
+		
+		d.setCoordenada();
+		assertEquals(d.getCoordenadaX(), 9);
+		assertEquals(d.getCoordenadaY(), 0);
+		
+		d.setCoordenada();
+		assertEquals(d.getCoordenadaX(), 9);
+		assertEquals(d.getCoordenadaY(), 9);
+
+		d.setCoordenada();
+		assertEquals(d.getCoordenadaX(), -1);
+		assertEquals(d.getCoordenadaY(), 0);
+		
+		d.setCoordenada();
+		assertEquals(d.getCoordenadaX(), -1);
+		assertEquals(d.getCoordenadaY(), 0);
+		
+
+		d.setCoordenada();
+		assertEquals(d.getCoordenadaX(), 0);
+		assertEquals(d.getCoordenadaY(), -1);
+
+		d.setCoordenada();
+		assertEquals(d.getCoordenadaX(), 0);
+		assertEquals(d.getCoordenadaY(), -1);
+
+		d.setCoordenada();
+		assertEquals(d.getCoordenadaX(), -1);
+		assertEquals(d.getCoordenadaY(), -1);
+		
+		
+		
+		//valores límite 'x' y partición equivalente 'y'
+		
+		d.setCoordenada();
+		assertEquals(d.getCoordenadaX(), 1);
+		assertEquals(d.getCoordenadaY(), 5);
+		
+		d.setCoordenada();
+		assertEquals(d.getCoordenadaX(), 8);
+		assertEquals(d.getCoordenadaY(), 0);
+		
+		//valores límite 'y' y partición equivalente 'x'
+		
+		d.setCoordenada();
+		assertEquals(d.getCoordenadaX(), 4);
+		assertEquals(d.getCoordenadaY(), 2);
+		
+		d.setCoordenada();
+		assertEquals(d.getCoordenadaX(), 4);
+		assertEquals(d.getCoordenadaY(), 9);
+		
+		//partición equivalente 'x' y 'y'
+		
+		d.setCoordenada();
+		assertEquals(d.getCoordenadaX(), 1);
+		assertEquals(d.getCoordenadaY(), 4);
+		
+		d.setCoordenada();
+		assertEquals(d.getCoordenadaX(), 5);
 		assertEquals(d.getCoordenadaY(), 7);
 		
 		

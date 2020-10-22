@@ -4,20 +4,26 @@ import java.util.ArrayList;
 
 public class Directa implements Coordenadas{
 
-	public Directa(Teclado mockTeclado) {
-		// TODO Auto-generated constructor stub
+	private int x, y;
+	
+	Teclado teclado;
+	
+	public Directa(Teclado teclado) {
+		x = -1;
+		y = -1;
+		this.teclado = teclado;
 	}
 
 	@Override
-	public ArrayList<String> getCoordenadaX() {
+	public int getCoordenadaX() {
 		// TODO Auto-generated method stub
-		return null;
+		return x;
 	}
 	
 	@Override
-	public ArrayList<String> getCoordenadaY() {
+	public int getCoordenadaY() {
 		// TODO Auto-generated method stub
-		return null;
+		return y;
 	}
 
 	@Override
