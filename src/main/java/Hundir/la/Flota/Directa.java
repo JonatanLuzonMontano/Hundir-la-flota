@@ -1,7 +1,5 @@
 package Hundir.la.Flota;
 
-import java.util.ArrayList;
-
 public class Directa implements Coordenadas{
 
 	private int x, y;
@@ -29,6 +27,29 @@ public class Directa implements Coordenadas{
 	@Override
 	public void setCoordenada() {
 		// TODO Auto-generated method stub
+		String coord = teclado.introducirCoordenada();
+		
+		//insertamos x (o letra de la coordenada)
+		if(((short) coord.charAt(0))>=65 && ((short)coord.charAt(0)<=74)) {
+			x = (short) coord.charAt(0) - 65;
+		} else {
+			if(((short) coord.charAt(0))>=97 && ((short)coord.charAt(0)<=106)) {
+				x = (short) coord.charAt(0) - 97;
+			} else {
+				x = -1;
+			}
+		}
+		
+		//insertamos y (o número de coordenada)
+		if(coord.charAt(1)>=0 && coord.charAt(1)<=9) {
+			x = coord.charAt(1);
+		} else {
+			if(coord.charAt(1)>=0 && coord.charAt(1)<=9) {
+				x = coord.charAt(1);
+			} else {
+				x = -1;
+			}
+		}
 		
 	}
 
