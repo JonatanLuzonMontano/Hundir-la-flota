@@ -42,13 +42,9 @@ public class Directa implements Coordenadas{
 		
 		//insertamos y (o número de coordenada)
 		if(coord.charAt(1)>=0 && coord.charAt(1)<=9) {
-			x = coord.charAt(1);
+			y = coord.charAt(1);
 		} else {
-			if(coord.charAt(1)>=0 && coord.charAt(1)<=9) {
-				x = coord.charAt(1);
-			} else {
-				x = -1;
-			}
+			y=-1;
 		}
 		
 	}

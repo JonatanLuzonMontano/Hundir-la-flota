@@ -24,6 +24,12 @@ public class DirectaTest {
 		coord.add("A11");
 		coord.add("P-3");
 		coord.add("Y20");
+		coord.add("B6");
+		coord.add("I6");
+		coord.add("E2");
+		coord.add("E9");
+		coord.add("B3");
+		coord.add("F7");
 		
 		coord.add("a1");
 		coord.add("a10");
@@ -35,6 +41,12 @@ public class DirectaTest {
 		coord.add("a11");
 		coord.add("p-3");
 		coord.add("y20");
+		coord.add("b6");
+		coord.add("i6");
+		coord.add("e2");
+		coord.add("e9");
+		coord.add("b3");
+		coord.add("f7");
 		
 		Directa d = new Directa(new MockTeclado(coord));
 		
@@ -92,7 +104,7 @@ public class DirectaTest {
 		
 		d.setCoordenada();
 		assertEquals(d.getCoordenadaX(), 8);
-		assertEquals(d.getCoordenadaY(), 0);
+		assertEquals(d.getCoordenadaY(), 5);
 		
 		//valores límite 'y' y partición equivalente 'x'
 		
@@ -102,7 +114,7 @@ public class DirectaTest {
 		
 		d.setCoordenada();
 		assertEquals(d.getCoordenadaX(), 4);
-		assertEquals(d.getCoordenadaY(), 9);
+		assertEquals(d.getCoordenadaY(), 8);
 		
 		//partición equivalente 'x' y 'y'
 		
@@ -174,7 +186,7 @@ public class DirectaTest {
 		
 		d.setCoordenada();
 		assertEquals(d.getCoordenadaX(), 4);
-		assertEquals(d.getCoordenadaY(), 9);
+		assertEquals(d.getCoordenadaY(), 8);
 		
 		//partición equivalente 'x' y 'y'
 		
