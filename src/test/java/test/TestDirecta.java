@@ -1,16 +1,21 @@
-package Hundir.la.Flota;
+package test;
 
 import static org.junit.Assert.*;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import org.junit.Test;
 
-public class TestCoordenadaDirecta {
+import hundirlaflota.Directa;
+
+public class TestDirecta {
 
 	@Test
 	public void setCoordenada() throws IOException {
-		Directa d = new Directa(new MockTeclado("Coordenadas.txt"));
+		ArrayList<String> coords = new ArrayList<String>();
+		
+		Directa d = new Directa(new MockTeclado(coords));
 		
 		//MAYUSCULAS
 		//valores límite 'x' y 'y'

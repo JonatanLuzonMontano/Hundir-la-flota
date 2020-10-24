@@ -1,4 +1,4 @@
-package Hundir.la.Flota;
+package hundirlaflota;
 
 public class Directa implements Coordenadas{
 

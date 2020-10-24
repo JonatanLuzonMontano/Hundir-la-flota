@@ -1,4 +1,4 @@
-package Hundir.la.Flota;
+package hundirlaflota;
 
 public interface Teclado {
 	String introducirCoordenada();
