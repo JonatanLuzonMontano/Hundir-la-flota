@@ -72,10 +72,6 @@ public class DirectaTest {
 		assertEquals(d.getCoordenadaY(), 0);
 		
 		d.setCoordenada();
-		assertEquals(d.getCoordenadaX(), -1);
-		assertEquals(d.getCoordenadaY(), 0);
-		
-		d.setCoordenada();
 		assertEquals(d.getCoordenadaX(), 0);
 		assertEquals(d.getCoordenadaY(), -1);
 
@@ -139,10 +135,6 @@ public class DirectaTest {
 		d.setCoordenada();
 		assertEquals(d.getCoordenadaX(), 9);
 		assertEquals(d.getCoordenadaY(), 9);
-
-		d.setCoordenada();
-		assertEquals(d.getCoordenadaX(), -1);
-		assertEquals(d.getCoordenadaY(), 0);
 		
 		d.setCoordenada();
 		assertEquals(d.getCoordenadaX(), -1);
