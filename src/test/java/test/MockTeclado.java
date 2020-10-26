@@ -7,7 +7,7 @@ import hundirlaflota.Teclado;
 
 public class MockTeclado implements Teclado{
 	
-	ArrayList<String> inputs = new ArrayList<String>();
+	public ArrayList<String> inputs = new ArrayList<String>();
 	
 	public MockTeclado (ArrayList<String> coord) throws IOException {
 		this.inputs = coord;

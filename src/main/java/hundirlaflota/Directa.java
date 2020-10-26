@@ -4,7 +4,7 @@ public class Directa implements Coordenadas{
 
 	private int x, y;
 	
-	Teclado teclado;
+	public Teclado teclado;
 	
 	public Directa(Teclado teclado) {
 		x = -1;
@@ -39,10 +39,9 @@ public class Directa implements Coordenadas{
 				x = -1;
 			}
 		}
-		
 		//insertamos y (o número de coordenada)
-		if(coord.charAt(1)>=0 && coord.charAt(1)<=9) {
-			y = coord.charAt(1);
+		if(coord.charAt(1)>=1 && coord.charAt(1)<=10) {
+			y = coord.charAt(1)-1;
 		} else {
 			y=-1;
 		}
