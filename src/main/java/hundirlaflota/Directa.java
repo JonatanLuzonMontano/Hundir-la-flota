@@ -29,27 +29,32 @@ public class Directa implements Coordenadas{
 		// TODO Auto-generated method stub
 		
 		String coord = teclado.introducirCoordenada();
-		int xy = (short) coord.charAt(0);
-		
-		//insertamos x (o letra de la coordenada)
-		if(((short) coord.charAt(0))>=65 && ((short)coord.charAt(0)<=74)) {
-			x = (short) coord.charAt(0) - 65;
-		} else {
-			if(((short) coord.charAt(0))>=97 && ((short)coord.charAt(0)<=106)) {
-				x = (short) coord.charAt(0) - 97;
+		try {
+			//insertamos x (o letra de la coordenada)
+			if(((short) coord.charAt(0))>=65 && ((short)coord.charAt(0)<=74)) {
+				x = (short) coord.charAt(0) - 65;
 			} else {
-				x = -1;
+				if(((short) coord.charAt(0))>=97 && ((short)coord.charAt(0)<=106)) {
+					x = (short) coord.charAt(0) - 97;
+				} else {
+					x = -1;
+				}
 			}
+		}catch(Exception e){
+			x=-1;
 		}
 		
 		//insertamos y (o número de coordenada)
-		
-		String coordy = coord.substring(1);
-		int cy = Integer.parseInt(coordy);
-		
-		if(cy>=1 && cy<=10) {
-			y = cy-1;
-		} else {
+		try{
+			String coordy = coord.substring(1);
+			int cy = Integer.parseInt(coordy);
+			
+			if(cy>=1 && cy<=10) {
+				y = cy-1;
+			} else {
+				y=-1;
+			}
+		}catch(Exception e){
 			y=-1;
 		}
 		
