@@ -27,9 +27,10 @@ public class Directa implements Coordenadas{
 	@Override
 	public void setCoordenada() {
 		// TODO Auto-generated method stub
+		
 		String coord = teclado.introducirCoordenada();
 		int xy = (short) coord.charAt(0);
-		System.out.print(xy);
+		
 		//insertamos x (o letra de la coordenada)
 		if(((short) coord.charAt(0))>=65 && ((short)coord.charAt(0)<=74)) {
 			x = (short) coord.charAt(0) - 65;
@@ -42,9 +43,9 @@ public class Directa implements Coordenadas{
 		}
 		
 		//insertamos y (o número de coordenada)
+		
 		String coordy = coord.substring(1);
 		int cy = Integer.parseInt(coordy);
-		System.out.print(cy + "\n");
 		
 		if(cy>=1 && cy<=10) {
 			y = cy-1;
