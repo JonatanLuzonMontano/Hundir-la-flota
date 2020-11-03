@@ -3,9 +3,9 @@ package test;
 import java.io.IOException;
 import java.util.ArrayList;
 
-import hundirlaflota.Teclado;
+import hundirlaflota.InterfazTeclado;
 
-public class MockTeclado implements Teclado{
+public class MockTeclado implements InterfazTeclado{
 	
 	public ArrayList<String> inputs = new ArrayList<String>();
 	

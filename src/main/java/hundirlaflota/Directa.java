@@ -1,12 +1,14 @@
 package hundirlaflota;
 
+import java.io.IOException;
+
 public class Directa implements Coordenadas{
 
 	private int x, y;
 	
-	public Teclado teclado;
+	public InterfazTeclado teclado;
 	
-	public Directa(Teclado teclado) {
+	public Directa(InterfazTeclado teclado) {
 		x = -1;
 		y = -1;
 		this.teclado = teclado;
@@ -25,7 +27,7 @@ public class Directa implements Coordenadas{
 	}
 
 	@Override
-	public void setCoordenada() {
+	public void setCoordenada() throws IOException {
 		// TODO Auto-generated method stub
 		
 		String coord = teclado.introducirCoordenada();
