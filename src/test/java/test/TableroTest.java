@@ -18,5 +18,25 @@ class TableroTest {
 			}
 		}
 	}
+	
+	@Test
+	void setCasilla() {
+		Tablero t = new Tablero();
+		
+		t.setCasilla(5, 5, -5);
+		assertEquals(t.getTablero().clone()[5][5], 0);
+		t.setCasilla(5, 5, -1);
+		assertEquals(t.getTablero().clone()[5][5], 0);
+		t.setCasilla(5, 5, 1);
+		assertEquals(t.getTablero().clone()[5][5], 1);
+		t.setCasilla(5, 5, 0);
+		assertEquals(t.getTablero().clone()[5][5], 0);
+		t.setCasilla(5, 5, 2);
+		assertEquals(t.getTablero().clone()[5][5], 2);
+		t.setCasilla(5, 5, 3);
+		assertEquals(t.getTablero().clone()[5][5], 2);
+		t.setCasilla(5, 5, 7);
+		assertEquals(t.getTablero().clone()[5][5], 2);
+	}
 
 }

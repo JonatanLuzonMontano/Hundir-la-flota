@@ -14,4 +14,13 @@ public class Tablero {
 	public int[][] getTablero(){
 		return tablero;
 	}
+	
+	public int getCasilla(int fila, int columna) {
+		return tablero[fila][columna];
+	}
+	
+	public void setCasilla(int fila, int columna, int valor) {
+		
+	}
+	
 }
