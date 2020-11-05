@@ -21,6 +21,9 @@ public class Tablero {
 	
 	public void setCasilla(int fila, int columna, int valor) {
 		
+		if(valor >= 0 && valor <= 2) {
+			tablero[fila][columna] = valor;
+		}
 	}
 	
 }
