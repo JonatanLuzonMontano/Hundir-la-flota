@@ -16,7 +16,22 @@ import hundirlaflota.Teclado;
 class JugadorTest {
 	
 	@Test
-	void comprovarDirección() throws IOException {
+	void inicializarDirecciones() throws IOException {
+		ArrayList<String> coord = new ArrayList<String>();
+		coord.add("a1");
+		Jugador j = new Jugador(new MockTeclado(coord));
+		j.comprovarDireccion(2, 0, 0);
+		j.inicializarDirecciones();
+		
+		assertTrue(j.getDirecciones()[0]);
+		assertTrue(j.getDirecciones()[1]);
+		assertTrue(j.getDirecciones()[2]);
+		assertTrue(j.getDirecciones()[3]);
+		
+	}
+	
+	@Test
+	void comprovarDireccion() throws IOException {
 		ArrayList<String> coord = new ArrayList<String>();
 		//Barco lognitud 2
 		coord.add("a1");

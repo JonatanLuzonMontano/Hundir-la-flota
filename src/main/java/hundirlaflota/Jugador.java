@@ -31,6 +31,7 @@ public class Jugador {
 			if(x-i < 0) {
 				direcciones[3] = false;
 			}
+			System.out.print("\n i = " + x+i);
 			if(x+i > 9) {
 				direcciones[1] = false;
 			}
@@ -38,6 +39,10 @@ public class Jugador {
 		
 	}
 
+	public void inicializarDirecciones() {
+
+	}
+	
 	public boolean[] getDirecciones() {
 		// TODO Auto-generated method stub
 		return direcciones;
