@@ -26,13 +26,13 @@ public class Jugador {
 				direcciones[0] = false;
 			}
 			if(coord.getCoordenadaY()+i > 9) {
-				direcciones[0] = false;
+				direcciones[2] = false;
 			}
 			if(coord.getCoordenadaX()-i < 0) {
-				direcciones[0] = false;
+				direcciones[3] = false;
 			}
 			if(coord.getCoordenadaX()+i > 9) {
-				direcciones[0] = false;
+				direcciones[1] = false;
 			}
 		}
 		
