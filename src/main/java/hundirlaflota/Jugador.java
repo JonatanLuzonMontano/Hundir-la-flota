@@ -22,16 +22,16 @@ public class Jugador {
 
 	public void comprovarDireccion(int longitud, int x, int y) {
 		for(int i = 0; i < longitud; i++) {
-			if(y < 0) {
+			if(y-i < 0) {
 				direcciones[0] = false;
 			}
-			if(y > 9) {
+			if(y+i > 9) {
 				direcciones[2] = false;
 			}
-			if(x < 0) {
+			if(x-i < 0) {
 				direcciones[3] = false;
 			}
-			if(x > 9) {
+			if(x+i > 9) {
 				direcciones[1] = false;
 			}
 		}
