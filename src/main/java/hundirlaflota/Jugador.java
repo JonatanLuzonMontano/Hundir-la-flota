@@ -40,7 +40,9 @@ public class Jugador {
 	}
 
 	public void inicializarDirecciones() {
-
+		for(int i = 0; i < direcciones.length; i++) {
+			direcciones[i] = true;
+		}
 	}
 	
 	public boolean[] getDirecciones() {

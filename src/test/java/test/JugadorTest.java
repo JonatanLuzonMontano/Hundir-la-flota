@@ -30,7 +30,7 @@ class JugadorTest {
 		
 	}
 	
-	@Test
+	//@Test
 	void comprovarDireccion() throws IOException {
 		ArrayList<String> coord = new ArrayList<String>();
 		//Barco lognitud 2
