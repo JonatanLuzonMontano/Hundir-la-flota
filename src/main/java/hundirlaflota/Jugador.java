@@ -22,16 +22,16 @@ public class Jugador {
 
 	public void comprovarDireccion(int longitud, int x, int y) {
 		for(int i = 0; i < longitud; i++) {
-			if(coord.getCoordenadaY()-i < 0) {
+			if(y < 0) {
 				direcciones[0] = false;
 			}
-			if(coord.getCoordenadaY()+i > 9) {
+			if(y > 9) {
 				direcciones[2] = false;
 			}
-			if(coord.getCoordenadaX()-i < 0) {
+			if(x < 0) {
 				direcciones[3] = false;
 			}
-			if(coord.getCoordenadaX()+i > 9) {
+			if(x > 9) {
 				direcciones[1] = false;
 			}
 		}
