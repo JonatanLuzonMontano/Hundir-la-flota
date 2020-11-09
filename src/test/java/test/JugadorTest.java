@@ -104,25 +104,25 @@ class JugadorTest {
 		assertFalse(j.getDirecciones()[2]);
 		assertTrue(j.getDirecciones()[3]);
 		//b2
-		j.comprovarDireccion(2, 0, 0);
+		j.comprovarDireccion(2, 1, 1);
 		assertTrue(j.getDirecciones()[0]);
 		assertTrue(j.getDirecciones()[1]);
 		assertTrue(j.getDirecciones()[2]);
 		assertTrue(j.getDirecciones()[3]);
 		//b9
-		j.comprovarDireccion(2, 0, 9);
+		j.comprovarDireccion(2, 1, 8);
 		assertTrue(j.getDirecciones()[0]);
 		assertTrue(j.getDirecciones()[1]);
 		assertTrue(j.getDirecciones()[2]);
 		assertTrue(j.getDirecciones()[3]);
 		//i2
-		j.comprovarDireccion(2, 9, 0);
+		j.comprovarDireccion(2, 8, 1);
 		assertTrue(j.getDirecciones()[0]);
 		assertTrue(j.getDirecciones()[1]);
 		assertTrue(j.getDirecciones()[2]);
 		assertTrue(j.getDirecciones()[3]);
 		//i9
-		j.comprovarDireccion(2, 9, 9);
+		j.comprovarDireccion(2, 8, 8);
 		assertTrue(j.getDirecciones()[0]);
 		assertTrue(j.getDirecciones()[1]);
 		assertTrue(j.getDirecciones()[2]);
