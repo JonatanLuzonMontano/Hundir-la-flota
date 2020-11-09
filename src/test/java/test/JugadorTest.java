@@ -7,6 +7,7 @@ import java.util.ArrayList;
 
 import org.junit.jupiter.api.Test;
 
+import hundirlaflota.Directa;
 import hundirlaflota.InterfazJugador;
 import hundirlaflota.Jugador;
 import hundirlaflota.Tablero;
@@ -59,6 +60,7 @@ class JugadorTest {
 		coord.add("e6");
 		coord.add("f5");
 		coord.add("f6");
+		
 		Jugador j = new Jugador(new MockTeclado(coord));
 
 		//Barco longitud 2
