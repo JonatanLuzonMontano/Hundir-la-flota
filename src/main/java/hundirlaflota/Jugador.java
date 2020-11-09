@@ -21,6 +21,7 @@ public class Jugador {
 	}
 
 	public void comprovarDireccion(int longitud, int x, int y) {
+		inicializarDirecciones();
 		for(int i = 0; i < longitud; i++) {
 			if(y-i < 0) {
 				direcciones[0] = false;
@@ -31,7 +32,6 @@ public class Jugador {
 			if(x-i < 0) {
 				direcciones[3] = false;
 			}
-			System.out.print("\n i = " + x+i);
 			if(x+i > 9) {
 				direcciones[1] = false;
 			}
