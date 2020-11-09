@@ -31,7 +31,7 @@ public class Jugador {
 			if(coord.getCoordenadaX()-i < 0) {
 				direcciones[0] = false;
 			}
-			if(coord.getCoordenadaX()-i > 9) {
+			if(coord.getCoordenadaX()+i > 9) {
 				direcciones[0] = false;
 			}
 		}
