@@ -326,7 +326,7 @@ class JugadorTest {
 		nuevasdirecciones[3] = false;
 		j.setDirecciones(nuevasdirecciones);
 		
-		j.comprobarObstaculos(5, 0, 2);
+		j.comprobarObstaculos(5, 2, 0);
 		assertFalse(j.getDirecciones()[0]);
 		assertFalse(j.getDirecciones()[1]);
 		assertTrue(j.getDirecciones()[2]);
