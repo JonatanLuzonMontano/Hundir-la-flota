@@ -267,21 +267,40 @@ class JugadorTest {
 								  {1,0,0,0,1,0,0,0,0,0},
 								  {0,0,0,0,1,0,0,0,1,0}};
 		
-		
+		boolean nuevasdirecciones[] = new boolean[4];
 		Jugador j = new Jugador(new Teclado());
 		j.setTablerodefensa(new MockTablero(tablerodefensa));
+
 		
-		j.comprobarObstaculos(2, 4, 5);
+		nuevasdirecciones[0] = true;
+		nuevasdirecciones[1] = true;
+		nuevasdirecciones[2] = true;
+		nuevasdirecciones[3] = true;
+		j.setDirecciones(nuevasdirecciones);
+		
+		j.comprobarObstaculos(2, 5, 4);
 		assertFalse(j.getDirecciones()[0]);
 		assertFalse(j.getDirecciones()[1]);
 		assertFalse(j.getDirecciones()[2]);
 		assertTrue(j.getDirecciones()[3]);
 		
-		j.comprobarObstaculos(5, 4, 5);
+		nuevasdirecciones[0] = true;
+		nuevasdirecciones[1] = true;
+		nuevasdirecciones[2] = true;
+		nuevasdirecciones[3] = true;
+		j.setDirecciones(nuevasdirecciones);
+		
+		j.comprobarObstaculos(5, 5, 4);
 		assertFalse(j.getDirecciones()[0]);
 		assertFalse(j.getDirecciones()[1]);
 		assertFalse(j.getDirecciones()[2]);
 		assertFalse(j.getDirecciones()[3]);
+		
+		nuevasdirecciones[0] = false;
+		nuevasdirecciones[1] = true;
+		nuevasdirecciones[2] = true;
+		nuevasdirecciones[3] = false;
+		j.setDirecciones(nuevasdirecciones);
 		
 		j.comprobarObstaculos(3, 1, 1);
 		assertFalse(j.getDirecciones()[0]);
@@ -289,11 +308,23 @@ class JugadorTest {
 		assertFalse(j.getDirecciones()[2]);
 		assertFalse(j.getDirecciones()[3]);
 		
+		nuevasdirecciones[0] = false;
+		nuevasdirecciones[1] = true;
+		nuevasdirecciones[2] = true;
+		nuevasdirecciones[3] = true;
+		j.setDirecciones(nuevasdirecciones);
+		
 		j.comprobarObstaculos(5, 0, 5);
 		assertFalse(j.getDirecciones()[0]);
 		assertTrue(j.getDirecciones()[1]);
 		assertTrue(j.getDirecciones()[2]);
 		assertFalse(j.getDirecciones()[3]);
+		
+		nuevasdirecciones[0] = false;
+		nuevasdirecciones[1] = true;
+		nuevasdirecciones[2] = true;
+		nuevasdirecciones[3] = false;
+		j.setDirecciones(nuevasdirecciones);
 		
 		j.comprobarObstaculos(5, 0, 2);
 		assertFalse(j.getDirecciones()[0]);
@@ -301,11 +332,23 @@ class JugadorTest {
 		assertTrue(j.getDirecciones()[2]);
 		assertFalse(j.getDirecciones()[3]);
 		
-		j.comprobarObstaculos(4, 7, 2);
+		nuevasdirecciones[0] = false;
+		nuevasdirecciones[1] = false;
+		nuevasdirecciones[2] = true;
+		nuevasdirecciones[3] = true;
+		j.setDirecciones(nuevasdirecciones);
+		
+		j.comprobarObstaculos(4, 2, 7);
 		assertFalse(j.getDirecciones()[0]);
 		assertFalse(j.getDirecciones()[1]);
 		assertTrue(j.getDirecciones()[2]);
 		assertFalse(j.getDirecciones()[3]);
+		
+		nuevasdirecciones[0] = true;
+		nuevasdirecciones[1] = true;
+		nuevasdirecciones[2] = true;
+		nuevasdirecciones[3] = true;
+		j.setDirecciones(nuevasdirecciones);
 		
 		j.comprobarObstaculos(2, 5, 8);
 		assertFalse(j.getDirecciones()[0]);
@@ -313,17 +356,35 @@ class JugadorTest {
 		assertFalse(j.getDirecciones()[2]);
 		assertTrue(j.getDirecciones()[3]);
 		
+		nuevasdirecciones[0] = true;
+		nuevasdirecciones[1] = false;
+		nuevasdirecciones[2] = true;
+		nuevasdirecciones[3] = true;
+		j.setDirecciones(nuevasdirecciones);
+		
 		j.comprobarObstaculos(4, 5, 8);
 		assertFalse(j.getDirecciones()[0]);
 		assertFalse(j.getDirecciones()[1]);
 		assertFalse(j.getDirecciones()[2]);
 		assertFalse(j.getDirecciones()[3]);
 		
+		nuevasdirecciones[0] = true;
+		nuevasdirecciones[1] = true;
+		nuevasdirecciones[2] = false;
+		nuevasdirecciones[3] = false;
+		j.setDirecciones(nuevasdirecciones);
+		
 		j.comprobarObstaculos(3, 9, 0);
 		assertFalse(j.getDirecciones()[0]);
 		assertTrue(j.getDirecciones()[1]);
 		assertFalse(j.getDirecciones()[2]);
 		assertFalse(j.getDirecciones()[3]);
+		
+		nuevasdirecciones[0] = true;
+		nuevasdirecciones[1] = false;
+		nuevasdirecciones[2] = false;
+		nuevasdirecciones[3] = true;
+		j.setDirecciones(nuevasdirecciones);
 		
 		j.comprobarObstaculos(3, 9, 9);
 		assertTrue(j.getDirecciones()[0]);

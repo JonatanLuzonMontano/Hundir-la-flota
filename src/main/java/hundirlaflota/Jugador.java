@@ -81,6 +81,10 @@ public class Jugador {
 		return direcciones;
 	}
 	
+	public void setDirecciones(boolean[] newdirecciones) {
+		direcciones = newdirecciones;
+	}
+	
 	public InterfazTablero getTableroataque() {
 		return tableroataque;
 	}
