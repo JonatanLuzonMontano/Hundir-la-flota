@@ -1,17 +1,16 @@
-package hundirlaflota;
+package test;
 
-public class Tablero implements InterfazTablero{
+import hundirlaflota.InterfazTablero;
+
+public class MockTablero implements InterfazTablero{
+
 	int tablero[][] = new int[10][10];
 	
-	public Tablero() {
-		for(int i = 0; i < 10; i++) {
-			for(int j = 0; j < 10; j++) {
-				tablero[i][j] = 0;
-			}
-		}
+	public MockTablero(int newtablero[][]) {
+		tablero = newtablero;
 	}
 	
-	public int[][] getTablero(){
+	public int[][] getTablero() {
 		return tablero;
 	}
 	
@@ -25,5 +24,5 @@ public class Tablero implements InterfazTablero{
 			tablero[fila][columna] = valor;
 		}
 	}
-	
+
 }

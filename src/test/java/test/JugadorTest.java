@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import org.junit.jupiter.api.Test;
 
 import hundirlaflota.Directa;
-import hundirlaflota.InterfazJugador;
+import hundirlaflota.InterfazTablero;
 import hundirlaflota.Jugador;
 import hundirlaflota.Tablero;
 import hundirlaflota.Teclado;
@@ -32,51 +32,8 @@ class JugadorTest {
 	
 	@Test
 	void comprovarDireccion() throws IOException {
-		ArrayList<String> coord = new ArrayList<String>();
-		//Barco lognitud 2
-		coord.add("a1");
-		coord.add("a10");
-		coord.add("j1");
-		coord.add("j10");
-		coord.add("b2");
-		coord.add("b9");
-		coord.add("i2");
-		coord.add("i9");
-		coord.add("e5");
 		
-		//Barco lognitud 3
-		coord.add("b2");
-		coord.add("b9");
-		coord.add("i2");
-		coord.add("i9");
-		coord.add("c3");
-		coord.add("c8");
-		coord.add("h3");
-		coord.add("h8");
-		coord.add("e5");
-		
-		//Barco longitud 4
-		coord.add("c3");
-		coord.add("c8");
-		coord.add("h3");
-		coord.add("h8");
-		coord.add("d4");
-		coord.add("d7");
-		coord.add("g4");
-		coord.add("g7");
-		coord.add("e5");
-		
-		//Barco longitud 5
-		coord.add("d4");
-		coord.add("d7");
-		coord.add("g4");
-		coord.add("g7");
-		coord.add("e5");
-		coord.add("e6");
-		coord.add("f5");
-		coord.add("f6");
-		
-		Jugador j = new Jugador(new MockTeclado(coord));
+		Jugador j = new Jugador(new Teclado());
 
 		//Barco longitud 2
 		//a1
@@ -298,7 +255,81 @@ class JugadorTest {
 	}
 	
 	@Test
-	void comprobarObstaculos() {
+	void comprobarObstaculos() throws IOException {
+		int tablerodefensa[][] = {{0,1,0,0,0,0,0,0,0,0},
+								  {1,0,0,0,0,0,0,1,0,0},
+								  {0,1,0,0,0,0,1,0,1,0},
+								  {0,0,0,0,1,0,0,0,0,0},
+								  {0,0,0,0,1,0,0,0,1,0},
+								  {0,1,1,0,0,1,0,0,0,1},
+								  {0,0,0,0,1,0,0,0,1,0},
+								  {0,0,0,0,1,0,0,0,0,0},
+								  {1,0,0,0,1,0,0,0,0,0},
+								  {0,0,0,0,1,0,0,0,1,0}};
+		
+		
+		Jugador j = new Jugador(new Teclado());
+		j.setTablerodefensa(new MockTablero(tablerodefensa));
+		
+		j.comprobarObstaculos(2, 4, 5);
+		assertFalse(j.getDirecciones()[0]);
+		assertFalse(j.getDirecciones()[1]);
+		assertFalse(j.getDirecciones()[2]);
+		assertTrue(j.getDirecciones()[3]);
+		
+		j.comprobarObstaculos(5, 4, 5);
+		assertFalse(j.getDirecciones()[0]);
+		assertFalse(j.getDirecciones()[1]);
+		assertFalse(j.getDirecciones()[2]);
+		assertFalse(j.getDirecciones()[3]);
+		
+		j.comprobarObstaculos(3, 1, 1);
+		assertFalse(j.getDirecciones()[0]);
+		assertTrue(j.getDirecciones()[1]);
+		assertFalse(j.getDirecciones()[2]);
+		assertFalse(j.getDirecciones()[3]);
+		
+		j.comprobarObstaculos(5, 0, 5);
+		assertFalse(j.getDirecciones()[0]);
+		assertTrue(j.getDirecciones()[1]);
+		assertTrue(j.getDirecciones()[2]);
+		assertFalse(j.getDirecciones()[3]);
+		
+		j.comprobarObstaculos(5, 0, 2);
+		assertFalse(j.getDirecciones()[0]);
+		assertFalse(j.getDirecciones()[1]);
+		assertTrue(j.getDirecciones()[2]);
+		assertFalse(j.getDirecciones()[3]);
+		
+		j.comprobarObstaculos(4, 7, 2);
+		assertFalse(j.getDirecciones()[0]);
+		assertFalse(j.getDirecciones()[1]);
+		assertTrue(j.getDirecciones()[2]);
+		assertFalse(j.getDirecciones()[3]);
+		
+		j.comprobarObstaculos(2, 5, 8);
+		assertFalse(j.getDirecciones()[0]);
+		assertFalse(j.getDirecciones()[1]);
+		assertFalse(j.getDirecciones()[2]);
+		assertTrue(j.getDirecciones()[3]);
+		
+		j.comprobarObstaculos(4, 5, 8);
+		assertFalse(j.getDirecciones()[0]);
+		assertFalse(j.getDirecciones()[1]);
+		assertFalse(j.getDirecciones()[2]);
+		assertFalse(j.getDirecciones()[3]);
+		
+		j.comprobarObstaculos(3, 9, 0);
+		assertFalse(j.getDirecciones()[0]);
+		assertTrue(j.getDirecciones()[1]);
+		assertFalse(j.getDirecciones()[2]);
+		assertFalse(j.getDirecciones()[3]);
+		
+		j.comprobarObstaculos(3, 9, 9);
+		assertTrue(j.getDirecciones()[0]);
+		assertFalse(j.getDirecciones()[1]);
+		assertFalse(j.getDirecciones()[2]);
+		assertFalse(j.getDirecciones()[3]);
 		
 	}
 

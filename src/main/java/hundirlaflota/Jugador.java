@@ -39,6 +39,37 @@ public class Jugador {
 		}
 		
 	}
+		
+	public void comprobarObstaculos(int longitud, int x, int y) {
+		for(int i = 0; i < direcciones.length; i++) {
+			if(direcciones[i]) {
+				for(int j = 0; j < longitud; j++) {
+					switch(i) {
+						case 0:
+							if(tablerodefensa.getTablero()[x - j][y] != 0) {
+								direcciones[i] = false;
+							}
+							break;
+						case 1:
+							if(tablerodefensa.getTablero()[x][y + j] != 0) {
+								direcciones[i] = false;
+							}
+							break;
+						case 2:
+							if(tablerodefensa.getTablero()[x + j][y] != 0) {
+								direcciones[i] = false;
+							}
+							break;
+						case 3:
+							if(tablerodefensa.getTablero()[x][y - j] != 0) {
+								direcciones[i] = false;
+							}
+							break;
+					}
+				}
+			}
+		}
+	}
 
 	public void inicializarDirecciones() {
 		for(int i = 0; i < direcciones.length; i++) {
@@ -50,8 +81,20 @@ public class Jugador {
 		return direcciones;
 	}
 	
-	public void comprobarObstaculos() {
-		
+	public InterfazTablero getTableroataque() {
+		return tableroataque;
+	}
+
+	public void setTableroataque(InterfazTablero tableroataque) {
+		this.tableroataque = (Tablero) tableroataque;
+	}
+
+	public Tablero getTablerodefensa() {
+		return tablerodefensa;
+	}
+
+	public void setTablerodefensa(InterfazTablero tablerodefensa) {
+		this.tablerodefensa = (Tablero) tablerodefensa;
 	}
 
 }
