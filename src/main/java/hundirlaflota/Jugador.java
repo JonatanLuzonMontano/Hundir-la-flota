@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public class Jugador {
 
 	Coordenadas coord;
-	Tablero tableroataque, tablerodefensa;
+	InterfazTablero tableroataque, tablerodefensa;
 	boolean direcciones[] = {true, true, true, true};
 	ArrayList<Integer> barcos = new ArrayList<Integer>();
 	
@@ -86,15 +86,15 @@ public class Jugador {
 	}
 
 	public void setTableroataque(InterfazTablero tableroataque) {
-		this.tableroataque = (Tablero) tableroataque;
+		this.tableroataque = tableroataque;
 	}
 
-	public Tablero getTablerodefensa() {
+	public InterfazTablero getTablerodefensa() {
 		return tablerodefensa;
 	}
 
 	public void setTablerodefensa(InterfazTablero tablerodefensa) {
-		this.tablerodefensa = (Tablero) tablerodefensa;
+		this.tablerodefensa = tablerodefensa;
 	}
 
 }
