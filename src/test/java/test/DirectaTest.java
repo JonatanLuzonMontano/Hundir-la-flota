@@ -204,5 +204,41 @@ public class DirectaTest {
 		assertEquals(d.getCoordenadaX(), -1);
 		assertEquals(d.getCoordenadaY(), -1);
 	}
+	
+	@Test
+	public void setDireccion() throws IOException {
+		ArrayList<String> dir = new ArrayList<String>();
+		
+		dir.add("-3");
+		dir.add("-1");
+		dir.add("0");
+		dir.add("1");
+		dir.add("2");
+		dir.add("3");
+		dir.add("4");
+		dir.add("5");
+		dir.add("8");
+		
+		Directa d = new Directa(new MockTeclado(dir));
+		
+		d.setDireccion();
+		assertEquals(d.getDireccion(), -1);
+		d.setDireccion();
+		assertEquals(d.getDireccion(), -1);
+		d.setDireccion();
+		assertEquals(d.getDireccion(), -1);
+		d.setDireccion();
+		assertEquals(d.getDireccion(), 1);
+		d.setDireccion();
+		assertEquals(d.getDireccion(), 2);
+		d.setDireccion();
+		assertEquals(d.getDireccion(), 3);
+		d.setDireccion();
+		assertEquals(d.getDireccion(), 4);
+		d.setDireccion();
+		assertEquals(d.getDireccion(), -1);
+		d.setDireccion();
+		assertEquals(d.getDireccion(), -1);
+	}
 
 }

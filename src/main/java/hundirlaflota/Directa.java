@@ -7,10 +7,13 @@ public class Directa implements Coordenadas{
 	private int x, y;
 	
 	public InterfazTeclado teclado;
+
+	private int direccion;
 	
 	public Directa(InterfazTeclado teclado) {
 		x = -1;
 		y = -1;
+		direccion = -1;
 		this.teclado = teclado;
 	}
 
@@ -59,7 +62,15 @@ public class Directa implements Coordenadas{
 		}catch(Exception e){
 			y=-1;
 		}
+	}
+
+	public void setDireccion() {
+		// TODO Auto-generated method stub
 		
 	}
 
+	public int getDireccion() {
+		// TODO Auto-generated method stub
+		return direccion;
+	}	
 }

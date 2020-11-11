@@ -7,16 +7,17 @@ public class Jugador {
 	Coordenadas coord;
 	InterfazTablero tableroataque, tablerodefensa;
 	boolean direcciones[] = {true, true, true, true};
-	ArrayList<Integer> barcos = new ArrayList<Integer>();
+	ArrayList<Barco> barcossinponer = new ArrayList<Barco>();
+	ArrayList<Barco> barcospuestos = new ArrayList<Barco>();
 	
 	public Jugador(InterfazTeclado teclado) {
 		this.coord = new Directa(teclado);
 		tableroataque = new Tablero();
 		tablerodefensa = new Tablero();
-		barcos.add(2);
-		barcos.add(3);
-		barcos.add(4);
-		barcos.add(5);
+		barcossinponer.add(new Barco(2));
+		barcossinponer.add(new Barco(3));
+		barcossinponer.add(new Barco(4));
+		barcossinponer.add(new Barco(5));
 	}
 
 	public void comprovarDireccion(int longitud, int x, int y) {
