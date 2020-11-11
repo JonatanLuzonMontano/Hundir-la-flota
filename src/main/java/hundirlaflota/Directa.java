@@ -8,7 +8,7 @@ public class Directa implements Coordenadas{
 	
 	public InterfazTeclado teclado;
 
-	private int direccion;
+	private Integer direccion;
 	
 	public Directa(InterfazTeclado teclado) {
 		x = -1;
@@ -64,9 +64,14 @@ public class Directa implements Coordenadas{
 		}
 	}
 
-	public void setDireccion() {
+	public void setDireccion() throws IOException {
 		// TODO Auto-generated method stub
-		
+		int dir = Integer.parseInt(teclado.introducirCoordenada());
+		if(dir >= 1 && dir <= 4) {
+			direccion = dir;
+		} else {
+			direccion = -1;
+		}
 	}
 
 	public int getDireccion() {
