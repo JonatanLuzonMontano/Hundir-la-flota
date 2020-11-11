@@ -278,7 +278,7 @@ class JugadorTest {
 		nuevasdirecciones[3] = true;
 		j.setDirecciones(nuevasdirecciones);
 		
-		j.comprobarObstaculos(2, 5, 4);
+		j.comprovarObstaculos(2, 5, 4);
 		assertFalse(j.getDirecciones()[0]);
 		assertFalse(j.getDirecciones()[1]);
 		assertFalse(j.getDirecciones()[2]);
@@ -290,7 +290,7 @@ class JugadorTest {
 		nuevasdirecciones[3] = true;
 		j.setDirecciones(nuevasdirecciones);
 		
-		j.comprobarObstaculos(5, 5, 4);
+		j.comprovarObstaculos(5, 5, 4);
 		assertFalse(j.getDirecciones()[0]);
 		assertFalse(j.getDirecciones()[1]);
 		assertFalse(j.getDirecciones()[2]);
@@ -302,7 +302,7 @@ class JugadorTest {
 		nuevasdirecciones[3] = false;
 		j.setDirecciones(nuevasdirecciones);
 		
-		j.comprobarObstaculos(3, 1, 1);
+		j.comprovarObstaculos(3, 1, 1);
 		assertFalse(j.getDirecciones()[0]);
 		assertTrue(j.getDirecciones()[1]);
 		assertFalse(j.getDirecciones()[2]);
@@ -314,7 +314,7 @@ class JugadorTest {
 		nuevasdirecciones[3] = true;
 		j.setDirecciones(nuevasdirecciones);
 		
-		j.comprobarObstaculos(5, 0, 5);
+		j.comprovarObstaculos(5, 0, 5);
 		assertFalse(j.getDirecciones()[0]);
 		assertTrue(j.getDirecciones()[1]);
 		assertTrue(j.getDirecciones()[2]);
@@ -326,7 +326,7 @@ class JugadorTest {
 		nuevasdirecciones[3] = false;
 		j.setDirecciones(nuevasdirecciones);
 		
-		j.comprobarObstaculos(5, 2, 0);
+		j.comprovarObstaculos(5, 2, 0);
 		assertFalse(j.getDirecciones()[0]);
 		assertFalse(j.getDirecciones()[1]);
 		assertTrue(j.getDirecciones()[2]);
@@ -338,7 +338,7 @@ class JugadorTest {
 		nuevasdirecciones[3] = true;
 		j.setDirecciones(nuevasdirecciones);
 		
-		j.comprobarObstaculos(4, 2, 7);
+		j.comprovarObstaculos(4, 2, 7);
 		assertFalse(j.getDirecciones()[0]);
 		assertFalse(j.getDirecciones()[1]);
 		assertTrue(j.getDirecciones()[2]);
@@ -350,7 +350,7 @@ class JugadorTest {
 		nuevasdirecciones[3] = true;
 		j.setDirecciones(nuevasdirecciones);
 		
-		j.comprobarObstaculos(2, 5, 8);
+		j.comprovarObstaculos(2, 5, 8);
 		assertFalse(j.getDirecciones()[0]);
 		assertFalse(j.getDirecciones()[1]);
 		assertFalse(j.getDirecciones()[2]);
@@ -362,7 +362,7 @@ class JugadorTest {
 		nuevasdirecciones[3] = true;
 		j.setDirecciones(nuevasdirecciones);
 		
-		j.comprobarObstaculos(4, 5, 8);
+		j.comprovarObstaculos(4, 5, 8);
 		assertFalse(j.getDirecciones()[0]);
 		assertFalse(j.getDirecciones()[1]);
 		assertFalse(j.getDirecciones()[2]);
@@ -374,7 +374,7 @@ class JugadorTest {
 		nuevasdirecciones[3] = false;
 		j.setDirecciones(nuevasdirecciones);
 		
-		j.comprobarObstaculos(3, 9, 0);
+		j.comprovarObstaculos(3, 9, 0);
 		assertFalse(j.getDirecciones()[0]);
 		assertTrue(j.getDirecciones()[1]);
 		assertFalse(j.getDirecciones()[2]);
@@ -386,7 +386,7 @@ class JugadorTest {
 		nuevasdirecciones[3] = true;
 		j.setDirecciones(nuevasdirecciones);
 		
-		j.comprobarObstaculos(3, 9, 9);
+		j.comprovarObstaculos(3, 9, 9);
 		assertTrue(j.getDirecciones()[0]);
 		assertFalse(j.getDirecciones()[1]);
 		assertFalse(j.getDirecciones()[2]);
@@ -424,6 +424,10 @@ class JugadorTest {
 			  					   {0,0,1,0,1,0,0,0,1,1}};
 		
 		ArrayList<String> coord = new ArrayList<String>();
+		coord.add("a11");
+		coord.add("w5");
+		coord.add("?");
+		coord.add("356");
 		coord.add("a6");
 		coord.add("3");
 		coord.add("j10");
