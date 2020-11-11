@@ -102,4 +102,9 @@ public class Jugador {
 		this.tablerodefensa = tablerodefensa;
 	}
 
+	public void ponerBarco(int i) {
+		// TODO Auto-generated method stub
+		
+	}
+
 }
