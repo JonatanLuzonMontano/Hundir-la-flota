@@ -412,6 +412,17 @@ class JugadorTest {
 				  					  {1,0,0,0,1,0,0,0,0,0},
 				  					  {0,0,0,0,1,0,0,0,1,0}};
 		
+		int tablerodefensabase2[][] = {	{0,1,0,0,0,0,0,0,0,0},
+			  	  						{1,0,0,0,0,0,0,1,0,0},
+			  	  						{0,1,0,0,0,0,1,0,1,0},
+			  	  						{0,0,0,0,1,0,0,0,0,0},
+			  	  						{0,0,0,0,1,0,0,0,1,0},
+			  	  						{0,1,1,0,0,1,0,0,0,1},
+			  	  						{0,0,0,0,1,0,0,0,1,0},
+			  	  						{0,0,0,0,1,0,0,0,0,0},
+			  	  						{1,0,0,0,1,0,0,0,0,0},
+			  	  						{0,0,0,0,1,0,0,0,1,0}};
+		
 		int tablerodefensa2[][] = {{0,1,0,0,1,1,0,0,0,0},
 			  	  				   {1,0,0,0,0,0,0,1,0,0},
 			  					   {0,1,0,0,0,0,1,0,1,0},
@@ -437,16 +448,22 @@ class JugadorTest {
 		coord.add("3");
 		
 		Jugador j = new Jugador(new MockTeclado(coord));
-		j.setTablerodefensa(new MockTablero(tablerodefensabase));
+		j.setTablerodefensa(new MockTablero(tablerodefensabase2));
 		j.ponerBarco(2);
 		j.ponerBarco(2);
 		j.ponerBarco(2);
 		j.ponerBarco(2);
-		Tablero tablerotest = (Tablero) j.getTablerodefensa();
+		//Tablero tablerotest = (Tablero) j.getTablerodefensa();
 		for(int x = 0; x < 10; x++) {
 			for(int y = 0; y < 10; y++) {
 				
-				assertEquals(tablerotest.getTablero()[x][y], tablerodefensa2[x][y]);
+				assertEquals(j.getTablerodefensa().getTablero()[x][y], tablerodefensa2[x][y]);
+			}
+		}
+		
+		for (int x = 0; x < 10; x++) {
+			for (int y = 0; y < 10; y++) {
+				tablerodefensabase2[x][y] = tablerodefensabase[x][y];
 			}
 		}
 		
@@ -470,26 +487,32 @@ class JugadorTest {
 		coord.add("h1");
 		coord.add("2");
 		
-		j.setTablerodefensa(new MockTablero(tablerodefensabase));
+		j.setTablerodefensa(new MockTablero(tablerodefensabase2));
 		j.ponerBarco(3);
 		j.ponerBarco(3);
 		j.ponerBarco(3);
 		j.ponerBarco(3);
-		tablerotest = (Tablero) j.getTablerodefensa();
+		//tablerotest = (Tablero) j.getTablerodefensa();
 		for(int x = 0; x < 10; x++) {
 			for(int y = 0; y < 10; y++) {
-				assertEquals(tablerotest.getTablero()[x][y], tablerodefensa3[x][y]);
+				assertEquals(j.getTablerodefensa().getTablero()[x][y], tablerodefensa3[x][y]);
+			}
+		}
+		
+		for (int x = 0; x < 10; x++) {
+			for (int y = 0; y < 10; y++) {
+				tablerodefensabase2[x][y] = tablerodefensabase[x][y];
 			}
 		}
 		
 		int tablerodefensa4[][] = {{0,1,0,0,0,0,0,0,0,0},
-				   				   {1,0,0,0,0,0,0,1,0,0},
-								   {0,1,0,0,0,0,1,0,1,0},
-								   {0,0,0,0,1,0,0,0,0,0},
-								   {0,0,0,0,1,0,0,0,1,0},
-								   {0,1,1,0,0,1,0,0,0,1},
-								   {0,0,0,0,1,0,0,0,1,0},
-								   {0,0,0,0,1,0,0,0,0,0},
+				   				   {1,0,0,0,0,0,0,1,0,1},
+								   {0,1,0,0,0,0,1,0,1,1},
+								   {1,0,0,0,1,1,1,1,1,1},
+								   {1,0,0,0,1,0,0,0,1,1},
+								   {1,1,1,0,0,1,0,0,0,1},
+								   {1,0,0,0,1,0,0,0,1,0},
+								   {0,0,0,0,1,1,1,1,1,0},
 								   {1,0,0,0,1,0,0,0,0,0},
 								   {0,0,0,0,1,0,0,0,1,0}};
 		
@@ -497,52 +520,58 @@ class JugadorTest {
 		coord.add("1");
 		coord.add("d6");
 		coord.add("2");
-		coord.add("h6");
+		coord.add("h9");
 		coord.add("1");
 		coord.add("g1");
 		coord.add("1");
 		
-		j.setTablerodefensa(new MockTablero(tablerodefensabase));
+		j.setTablerodefensa(new MockTablero(tablerodefensabase2));
 		j.ponerBarco(4);
 		j.ponerBarco(4);
 		j.ponerBarco(4);
 		j.ponerBarco(4);
-		tablerotest = (Tablero) j.getTablerodefensa();
+		//tablerotest = (Tablero) j.getTablerodefensa();
 		for(int x = 0; x < 10; x++) {
 			for(int y = 0; y < 10; y++) {
-				assertEquals(tablerotest.getTablero()[x][y], tablerodefensa4[x][y]);
+				assertEquals(j.getTablerodefensa().getTablero()[x][y], tablerodefensa4[x][y]);
 			}
 		}
 		
-		int tablerodefensa5[][] = {{0,1,0,0,0,0,0,0,0,0},
- 				   				   {1,0,0,0,0,0,0,1,0,0},
- 								   {0,1,0,0,0,0,1,0,1,0},
- 								   {0,0,0,0,1,0,0,0,0,0},
- 								   {0,0,0,0,1,0,0,0,1,0},
- 								   {0,1,1,0,0,1,0,0,0,1},
- 								   {0,0,0,0,1,0,0,0,1,0},
- 								   {0,0,0,0,1,0,0,0,0,0},
- 								   {1,0,0,0,1,0,0,0,0,0},
+		for (int x = 0; x < 10; x++) {
+			for (int y = 0; y < 10; y++) {
+				tablerodefensabase2[x][y] = tablerodefensabase[x][y];
+			}
+		}
+		
+		int tablerodefensa5[][] = {{0,1,0,1,1,1,1,1,0,1},
+ 				   				   {1,0,0,0,0,0,0,1,0,1},
+ 								   {0,1,0,0,0,0,1,0,1,1},
+ 								   {0,0,0,0,1,0,0,0,0,1},
+ 								   {0,0,0,1,1,0,0,0,1,1},
+ 								   {0,1,1,1,0,1,0,0,0,1},
+ 								   {0,0,0,1,1,0,0,0,1,0},
+ 								   {0,0,0,1,1,0,0,0,0,0},
+ 								   {1,0,0,1,1,1,1,1,1,1},
  								   {0,0,0,0,1,0,0,0,1,0}};
 		
 		coord.add("e4");
 		coord.add("2");
-		coord.add("e6");
+		coord.add("a8");
 		coord.add("1");
 		coord.add("e10");
 		coord.add("1");
-		coord.add("c8");
+		coord.add("i6");
 		coord.add("1");
 		
-		j.setTablerodefensa(new MockTablero(tablerodefensabase));
+		j.setTablerodefensa(new MockTablero(tablerodefensabase2));
 		j.ponerBarco(5);
 		j.ponerBarco(5);
 		j.ponerBarco(5);
 		j.ponerBarco(5);
-		tablerotest = (Tablero) j.getTablerodefensa();
+		//tablerotest = (Tablero) j.getTablerodefensa();
 		for(int x = 0; x < 10; x++) {
 			for(int y = 0; y < 10; y++) {
-				assertEquals(tablerotest.getTablero()[x][y], tablerodefensa5[x][y]);
+				assertEquals(j.getTablerodefensa().getTablero()[x][y], tablerodefensa5[x][y]);
 			}
 		}
 		

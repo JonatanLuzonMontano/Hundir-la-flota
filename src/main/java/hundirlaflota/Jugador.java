@@ -108,10 +108,8 @@ public class Jugador {
 		boolean puedeponerse = false;
 		
 		System.out.print("Introducir cordenada inicia del barco:\n");
-		System.out.print("while 1\n");
 		while(!puedeponerse) {
 
-			System.out.print("while sub 1\n");
 			while(!coordenadacorrecta) {
 				coord.setCoordenada();
 				if(coord.getCoordenadaX() != -1 && coord.getCoordenadaY() != -1) {
@@ -127,7 +125,6 @@ public class Jugador {
 			
 			int i = 0;
 
-			System.out.print("while 2\n");
 			while(i < 4 && !puedeponerse) {
 				
 				if(this.direcciones[i]) {
@@ -144,18 +141,14 @@ public class Jugador {
 			
 		}
 		
-		System.out.print("Hacia que dirección quieres poner el barco?\n");
-		
 		ArrayList<Integer> diraux = new ArrayList<Integer>();
 
-		System.out.print(diraux + "\nfor 1\n");
 		for(int i = 0; i < direcciones.length; i++) {
 			if(direcciones[i]) {
 				diraux.add(i);
 			}
 		}
-		System.out.print(diraux + "\n");
-		System.out.print("for 2\n");
+		
 		for(int i = 0; i < diraux.size(); i++) {
 			switch(diraux.get(i)) {
 			
@@ -175,7 +168,6 @@ public class Jugador {
 		}
 		
 		boolean dir = false;
-		System.out.print("while 3\n");
 		while(!dir) {
 			
 			((Directa) coord).setDireccion();
@@ -187,9 +179,8 @@ public class Jugador {
 			
 		}
 
-		System.out.print("for 3\n" + ((Directa) coord).getDireccion() + "\n");
 		for(int i = 0; i < longitud; i++) {
-			switch(((Directa) coord).getDireccion()){
+			switch(diraux.get(((Directa) coord).getDireccion()-1)){
 				case 0:
 					this.tablerodefensa.getTablero()[coord.getCoordenadaX() - i][coord.getCoordenadaY()] = 1;
 					break;
@@ -205,12 +196,6 @@ public class Jugador {
 			}
 		}
 		
-		for(int i  = 0; i < 10; i++) {
-			for(int j = 0; j < 10; j++) {
-				System.out.print(tablerodefensa.getCasilla(i, j));
-			}
-			System.out.print("\n");
-		}
 		
 	}
 
