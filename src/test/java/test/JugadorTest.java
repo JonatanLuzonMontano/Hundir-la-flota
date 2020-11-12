@@ -426,7 +426,6 @@ class JugadorTest {
 		ArrayList<String> coord = new ArrayList<String>();
 		coord.add("a11");
 		coord.add("w5");
-		coord.add("?");
 		coord.add("356");
 		coord.add("a6");
 		coord.add("3");
@@ -438,7 +437,7 @@ class JugadorTest {
 		coord.add("3");
 		
 		Jugador j = new Jugador(new MockTeclado(coord));
-		j.setTablerodefensa(new MockTablero(tablerodefensa2));
+		j.setTablerodefensa(new MockTablero(tablerodefensabase));
 		j.ponerBarco(2);
 		j.ponerBarco(2);
 		j.ponerBarco(2);
@@ -471,7 +470,7 @@ class JugadorTest {
 		coord.add("h1");
 		coord.add("2");
 		
-		j.setTablerodefensa(new MockTablero(tablerodefensa3));
+		j.setTablerodefensa(new MockTablero(tablerodefensabase));
 		j.ponerBarco(3);
 		j.ponerBarco(3);
 		j.ponerBarco(3);
@@ -503,7 +502,7 @@ class JugadorTest {
 		coord.add("g1");
 		coord.add("1");
 		
-		j.setTablerodefensa(new MockTablero(tablerodefensa4));
+		j.setTablerodefensa(new MockTablero(tablerodefensabase));
 		j.ponerBarco(4);
 		j.ponerBarco(4);
 		j.ponerBarco(4);
@@ -535,7 +534,7 @@ class JugadorTest {
 		coord.add("c8");
 		coord.add("1");
 		
-		j.setTablerodefensa(new MockTablero(tablerodefensa5));
+		j.setTablerodefensa(new MockTablero(tablerodefensabase));
 		j.ponerBarco(5);
 		j.ponerBarco(5);
 		j.ponerBarco(5);
