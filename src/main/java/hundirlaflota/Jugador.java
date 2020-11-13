@@ -200,17 +200,64 @@ public class Jugador {
 	public void disparar(Jugador jugadordefensa) throws IOException {
 		
 		boolean coordenadacorrecta = false;
-		while(!coordenadacorrecta) {
-			coord.setCoordenada();
-			if(coord.getCoordenadaX() != -1 && coord.getCoordenadaY() != -1) {
-				coordenadacorrecta = true;
-			} else {
-				System.out.print("Coordenada incorrecta (inexistente o fuera del tablero). "
-						+ "Vueve a introducir la coordenada: \n");
+		boolean finbucle = false;
+		String mensaje = "";
+
+		System.out.print("Introducir cordenada de disparo:\n");
+		while(!finbucle) {
+			while(!coordenadacorrecta) {
+				coord.setCoordenada();
+				if(coord.getCoordenadaX() != -1 && coord.getCoordenadaY() != -1) {
+					coordenadacorrecta = true;
+				} else {
+					System.out.print("Coordenada incorrecta (inexistente o fuera del tablero). "
+							+ "Vueve a introducir la coordenada: \n");
+				}
+			}
+			
+			int casilla = jugadordefensa.getTablerodefensa().getCasilla(coord.getCoordenadaX(), coord.getCoordenadaY());
+			
+			switch(casilla) {
+			case 0:
+				this.getTableroataque().setCasilla(coord.getCoordenadaX(), coord.getCoordenadaY(), casilla + 1);
+				mensaje = "Agua\n";
+				finbucle = true;
+				break;
+			case 1:
+				this.getTableroataque().setCasilla(coord.getCoordenadaX(), coord.getCoordenadaY(), casilla + 1);
+				mensaje = "Tocado";
+				
+				int i = 0;
+				int j = 0;
+				boolean encontradobarco = false;
+				boolean encontradacasilla = false;
+				while(i < jugadordefensa.getBarcosPuestos().size() && !encontradobarco) {
+					j = 0;
+					while(j < jugadordefensa.getBarcosPuestos().get(i).getCoordenadas().size() && !encontradacasilla) {
+						if(jugadordefensa.getBarcosPuestos().get(i).getCoordenadas().get(j).getCoordenadaX() == coord.getCoordenadaX() &&
+								jugadordefensa.getBarcosPuestos().get(i).getCoordenadas().get(j).getCoordenadaY() == coord.getCoordenadaY()) {
+							encontradobarco = true;
+							encontradacasilla = true;
+						}
+						j++;
+					}
+					i++;
+				}
+				
+				jugadordefensa.getBarcosPuestos().get(i).getCoordenadas().remove(j);
+				if(jugadordefensa.getBarcosPuestos().get(i).getCoordenadas().size() == 0) {
+					mensaje = mensaje + " y HUNDIDO";
+				}
+				
+				finbucle = true;
+				break;
+			case 2:
+				System.out.print("Ya has disparado aquí. vuelve a disparar");
+				break;
 			}
 		}
 		
-		
+		System.out.print(mensaje);
 		
 	}
 	
