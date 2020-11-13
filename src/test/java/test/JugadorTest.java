@@ -489,11 +489,11 @@ class JugadorTest {
 		assertEquals(jugadordefensa.getTablerodefensa().getCasilla(9, 9), 2);
 		jugadorataque.disparar(jugadordefensa);
 		assertEquals(jugadorataque.getTableroataque().getCasilla(6, 2), 2);
-		assertEquals(jugadordefensa.getBarcosPuestos().get(0).getCoordenadas().size(), 3);
+		assertEquals(jugadordefensa.getBarcosPuestos().get(2).getCoordenadas().size(), 3);
 		assertEquals(jugadordefensa.getTablerodefensa().getCasilla(6, 2), 2);
 		jugadorataque.disparar(jugadordefensa);
 		assertEquals(jugadorataque.getTableroataque().getCasilla(6, 3), 2);
-		assertEquals(jugadordefensa.getBarcosPuestos().get(0).getCoordenadas().size(), 2);
+		assertEquals(jugadordefensa.getBarcosPuestos().get(2).getCoordenadas().size(), 2);
 		assertEquals(jugadordefensa.getTablerodefensa().getCasilla(6, 3), 2);
 		
 		
