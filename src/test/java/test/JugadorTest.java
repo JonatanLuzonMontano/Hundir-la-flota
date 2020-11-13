@@ -7,6 +7,7 @@ import java.util.ArrayList;
 
 import org.junit.jupiter.api.Test;
 
+import hundirlaflota.Barco;
 import hundirlaflota.Directa;
 import hundirlaflota.InterfazTablero;
 import hundirlaflota.Jugador;
@@ -395,7 +396,101 @@ class JugadorTest {
 	}
 
 	@Test
-	void disparar() {
+	void disparar() throws IOException {
+		
+		int tablerodefensa[][] = {	{0,0,0,1,1,0,0,0,0,0},
+									{0,0,0,0,0,0,0,0,0,0},
+									{0,0,0,0,0,0,1,0,0,0},
+									{0,0,0,0,0,0,1,0,0,0},
+									{0,0,0,0,0,0,1,0,0,0},
+									{0,0,0,0,0,0,0,0,0,1},
+									{0,0,1,1,1,1,0,0,0,1},
+									{0,0,0,0,0,0,0,0,0,1},
+									{0,0,0,0,0,0,0,0,0,1},
+									{0,0,0,0,0,0,0,0,0,1}};
+		
+		int tableroataque[][] = {	{0,0,0,0,0,0,0,0,0,0},
+									{0,0,0,0,0,0,0,0,0,0},
+									{0,0,0,0,0,0,0,0,0,0},
+									{0,0,0,0,0,0,0,0,0,0},
+									{0,0,0,0,0,0,0,0,0,0},
+									{0,0,0,0,0,0,0,0,0,0},
+									{0,0,0,0,0,0,0,0,0,0},
+									{0,0,0,0,0,0,0,0,0,0},
+									{0,0,0,0,0,0,0,0,0,0},
+									{0,0,0,0,0,0,0,0,0,0}};
+		
+		ArrayList<String> coord = new ArrayList<String>();
+		coord.add("k12");
+		coord.add("000");
+		coord.add("a1");
+		coord.add("e4");
+		coord.add("h9");
+		coord.add("a4");
+		coord.add("a5");
+		coord.add("j10");
+		coord.add("g3");
+		coord.add("g4");
+		Jugador jugadorataque = new Jugador(new MockTeclado(coord));
+		Jugador jugadordefensa = new Jugador(new MockTeclado(coord));
+		
+		jugadorataque.setTableroataque(new MockTablero(tableroataque));
+		jugadordefensa.setTablerodefensa(new MockTablero(tablerodefensa));
+
+		Barco lon2 = new Barco(2);
+		Barco lon3 = new Barco(3);
+		Barco lon4 = new Barco(4);
+		Barco lon5 = new Barco(5);
+		
+		lon2.añadirCoordenada(0, 3);
+		lon2.añadirCoordenada(0, 4);
+		
+		lon3.añadirCoordenada(2, 6);
+		lon3.añadirCoordenada(3, 6);
+		lon3.añadirCoordenada(4, 6);
+		
+		lon4.añadirCoordenada(6, 2);
+		lon4.añadirCoordenada(6, 3);
+		lon4.añadirCoordenada(6, 4);
+		lon4.añadirCoordenada(6, 5);
+
+		lon5.añadirCoordenada(5, 9);
+		lon5.añadirCoordenada(6, 9);
+		lon5.añadirCoordenada(7, 9);
+		lon5.añadirCoordenada(8, 9);
+		lon5.añadirCoordenada(9, 9);
+		
+		ArrayList<Barco> listabarcos = new ArrayList<Barco>();
+		
+		listabarcos.add(lon2);
+		listabarcos.add(lon3);
+		listabarcos.add(lon4);
+		listabarcos.add(lon5);
+		
+		jugadordefensa.setBarcoPuestos(listabarcos);
+		
+		jugadorataque.disparar();
+		assertEquals(jugadorataque.getTableroataque().getCasilla(0, 0), 1);
+		jugadorataque.disparar();
+		assertEquals(jugadorataque.getTableroataque().getCasilla(4, 3), 1);
+		jugadorataque.disparar();
+		assertEquals(jugadorataque.getTableroataque().getCasilla(7, 8), 1);
+		jugadorataque.disparar();
+		assertEquals(jugadorataque.getTableroataque().getCasilla(0, 3), 2);
+		assertEquals(jugadordefensa.getBarcosPuestos().get(0).getCoordenadas().size(), 1);
+		jugadorataque.disparar();
+		assertEquals(jugadorataque.getTableroataque().getCasilla(0, 4), 2);
+		assertEquals(jugadordefensa.getBarcosPuestos().get(0).getCoordenadas().size(), 0);
+		jugadorataque.disparar();
+		assertEquals(jugadorataque.getTableroataque().getCasilla(9, 9), 2);
+		assertEquals(jugadordefensa.getBarcosPuestos().get(3).getCoordenadas().size(), 4);
+		jugadorataque.disparar();
+		assertEquals(jugadorataque.getTableroataque().getCasilla(6, 2), 2);
+		assertEquals(jugadordefensa.getBarcosPuestos().get(0).getCoordenadas().size(), 3);
+		jugadorataque.disparar();
+		assertEquals(jugadorataque.getTableroataque().getCasilla(6, 3), 2);
+		assertEquals(jugadordefensa.getBarcosPuestos().get(0).getCoordenadas().size(), 2);
+		
 		
 	}
 	
@@ -450,13 +545,19 @@ class JugadorTest {
 		Jugador j = new Jugador(new MockTeclado(coord));
 		j.setTablerodefensa(new MockTablero(tablerodefensabase2));
 		j.ponerBarco(2);
+		assertEquals(j.getBarcosPuestos().size(), 1);
+		assertEquals(j.getBarcosPuestos().get(j.getBarcosPuestos().size() - 1).getLongitud(), 2);
 		j.ponerBarco(2);
+		assertEquals(j.getBarcosPuestos().size(), 2);
+		assertEquals(j.getBarcosPuestos().get(j.getBarcosPuestos().size() - 1).getLongitud(), 2);
 		j.ponerBarco(2);
+		assertEquals(j.getBarcosPuestos().size(), 3);
+		assertEquals(j.getBarcosPuestos().get(j.getBarcosPuestos().size() - 1).getLongitud(), 2);
 		j.ponerBarco(2);
-		//Tablero tablerotest = (Tablero) j.getTablerodefensa();
+		assertEquals(j.getBarcosPuestos().size(), 4);
+		assertEquals(j.getBarcosPuestos().get(j.getBarcosPuestos().size() - 1).getLongitud(), 2);
 		for(int x = 0; x < 10; x++) {
 			for(int y = 0; y < 10; y++) {
-				
 				assertEquals(j.getTablerodefensa().getTablero()[x][y], tablerodefensa2[x][y]);
 			}
 		}
@@ -489,10 +590,17 @@ class JugadorTest {
 		
 		j.setTablerodefensa(new MockTablero(tablerodefensabase2));
 		j.ponerBarco(3);
+		assertEquals(j.getBarcosPuestos().size(), 5);
+		assertEquals(j.getBarcosPuestos().get(j.getBarcosPuestos().size() - 1).getLongitud(), 3);
 		j.ponerBarco(3);
+		assertEquals(j.getBarcosPuestos().size(), 6);
+		assertEquals(j.getBarcosPuestos().get(j.getBarcosPuestos().size() - 1).getLongitud(), 3);
 		j.ponerBarco(3);
+		assertEquals(j.getBarcosPuestos().size(), 7);
+		assertEquals(j.getBarcosPuestos().get(j.getBarcosPuestos().size() - 1).getLongitud(), 3);
 		j.ponerBarco(3);
-		//tablerotest = (Tablero) j.getTablerodefensa();
+		assertEquals(j.getBarcosPuestos().size(), 8);
+		assertEquals(j.getBarcosPuestos().get(j.getBarcosPuestos().size() - 1).getLongitud(), 3);
 		for(int x = 0; x < 10; x++) {
 			for(int y = 0; y < 10; y++) {
 				assertEquals(j.getTablerodefensa().getTablero()[x][y], tablerodefensa3[x][y]);
@@ -527,10 +635,17 @@ class JugadorTest {
 		
 		j.setTablerodefensa(new MockTablero(tablerodefensabase2));
 		j.ponerBarco(4);
+		assertEquals(j.getBarcosPuestos().size(), 9);
+		assertEquals(j.getBarcosPuestos().get(j.getBarcosPuestos().size() - 1).getLongitud(), 4);
 		j.ponerBarco(4);
+		assertEquals(j.getBarcosPuestos().size(), 10);
+		assertEquals(j.getBarcosPuestos().get(j.getBarcosPuestos().size() - 1).getLongitud(), 4);
 		j.ponerBarco(4);
+		assertEquals(j.getBarcosPuestos().size(), 11);
+		assertEquals(j.getBarcosPuestos().get(j.getBarcosPuestos().size() - 1).getLongitud(), 4);
 		j.ponerBarco(4);
-		//tablerotest = (Tablero) j.getTablerodefensa();
+		assertEquals(j.getBarcosPuestos().size(), 12);
+		assertEquals(j.getBarcosPuestos().get(j.getBarcosPuestos().size() - 1).getLongitud(), 4);
 		for(int x = 0; x < 10; x++) {
 			for(int y = 0; y < 10; y++) {
 				assertEquals(j.getTablerodefensa().getTablero()[x][y], tablerodefensa4[x][y]);
@@ -565,10 +680,17 @@ class JugadorTest {
 		
 		j.setTablerodefensa(new MockTablero(tablerodefensabase2));
 		j.ponerBarco(5);
+		assertEquals(j.getBarcosPuestos().size(), 13);
+		assertEquals(j.getBarcosPuestos().get(j.getBarcosPuestos().size() - 1).getLongitud(), 5);
 		j.ponerBarco(5);
+		assertEquals(j.getBarcosPuestos().size(), 14);
+		assertEquals(j.getBarcosPuestos().get(j.getBarcosPuestos().size() - 1).getLongitud(), 5);
 		j.ponerBarco(5);
+		assertEquals(j.getBarcosPuestos().size(), 15);
+		assertEquals(j.getBarcosPuestos().get(j.getBarcosPuestos().size() - 1).getLongitud(), 5);
 		j.ponerBarco(5);
-		//tablerotest = (Tablero) j.getTablerodefensa();
+		assertEquals(j.getBarcosPuestos().size(), 16);
+		assertEquals(j.getBarcosPuestos().get(j.getBarcosPuestos().size() - 1).getLongitud(), 5);
 		for(int x = 0; x < 10; x++) {
 			for(int y = 0; y < 10; y++) {
 				assertEquals(j.getTablerodefensa().getTablero()[x][y], tablerodefensa5[x][y]);

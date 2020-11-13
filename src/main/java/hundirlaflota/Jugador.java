@@ -79,30 +79,6 @@ public class Jugador {
 		}
 	}
 	
-	public boolean[] getDirecciones() {
-		return direcciones;
-	}
-	
-	public void setDirecciones(boolean[] newdirecciones) {
-		direcciones = newdirecciones;
-	}
-	
-	public InterfazTablero getTableroataque() {
-		return tableroataque;
-	}
-
-	public void setTableroataque(InterfazTablero tableroataque) {
-		this.tableroataque = tableroataque;
-	}
-
-	public InterfazTablero getTablerodefensa() {
-		return tablerodefensa;
-	}
-
-	public void setTablerodefensa(InterfazTablero tablerodefensa) {
-		this.tablerodefensa = tablerodefensa;
-	}
-
 	public void ponerBarco(int longitud) throws IOException {
 		boolean coordenadacorrecta = false;
 		boolean puedeponerse = false;
@@ -179,24 +155,92 @@ public class Jugador {
 			
 		}
 
-		for(int i = 0; i < longitud; i++) {
-			switch(diraux.get(((Directa) coord).getDireccion()-1)){
-				case 0:
+		this.barcospuestos.add(new Barco(longitud));
+		
+		switch(diraux.get(((Directa) coord).getDireccion()-1)){
+			case 0:
+				for(int i = 0; i < longitud; i++) {
 					this.tablerodefensa.getTablero()[coord.getCoordenadaX() - i][coord.getCoordenadaY()] = 1;
-					break;
-				case 1:
+					this.barcospuestos.get(this.barcospuestos.size()-1).añadirCoordenada(coord.getCoordenadaX() - i, coord.getCoordenadaY());
+				}
+				break;
+			case 1:
+				for(int i = 0; i < longitud; i++) {
 					this.tablerodefensa.getTablero()[coord.getCoordenadaX()][coord.getCoordenadaY() + i] = 1;
-					break;
-				case 2:
+					this.barcospuestos.get(this.barcospuestos.size()-1).añadirCoordenada(coord.getCoordenadaX(), coord.getCoordenadaY() + i);
+				}
+				break;
+			case 2:
+				for(int i = 0; i < longitud; i++) {
 					this.tablerodefensa.getTablero()[coord.getCoordenadaX() + i][coord.getCoordenadaY()] = 1;
-					break;
-				case 3:
+					this.barcospuestos.get(this.barcospuestos.size()-1).añadirCoordenada(coord.getCoordenadaX() + i, coord.getCoordenadaY());
+				}
+				break;
+			case 3:
+				for(int i = 0; i < longitud; i++) {
 					this.tablerodefensa.getTablero()[coord.getCoordenadaX()][coord.getCoordenadaY() - i] = 1;
-					break;
-			}
+					this.barcospuestos.get(this.barcospuestos.size()-1).añadirCoordenada(coord.getCoordenadaX(), coord.getCoordenadaY() - i);
+				}
+				break;
 		}
 		
+		int i = 0;
+		boolean encontrado = false;
+		
+		while(i < this.barcossinponer.size() && !encontrado) {
+			if(this.barcossinponer.get(i).getLongitud() == longitud) {
+				this.barcossinponer.remove(i);
+				encontrado = true;
+			}
+			
+			i++;
+		}
+	}
+
+	public void disparar() {
+		// TODO Auto-generated method stub
 		
 	}
+	
+	public boolean[] getDirecciones() {
+		return direcciones;
+	}
+	
+	public void setDirecciones(boolean[] newdirecciones) {
+		direcciones = newdirecciones;
+	}
+	
+	public InterfazTablero getTableroataque() {
+		return tableroataque;
+	}
+
+	public void setTableroataque(InterfazTablero tableroataque) {
+		this.tableroataque = tableroataque;
+	}
+
+	public InterfazTablero getTablerodefensa() {
+		return tablerodefensa;
+	}
+
+	public void setTablerodefensa(InterfazTablero tablerodefensa) {
+		this.tablerodefensa = tablerodefensa;
+	}
+	
+	public ArrayList<Barco> getBarcoSinPoner() {
+		return this.barcossinponer;
+	}
+	
+	public void setBarcoSinPoner(ArrayList<Barco> listabarcos) {
+		this.barcossinponer = listabarcos;
+	}
+	
+	public ArrayList<Barco> getBarcosPuestos() {
+		return this.barcospuestos;
+	}
+	
+	public void setBarcoPuestos(ArrayList<Barco> listabarcos) {
+		this.barcospuestos = listabarcos;
+	}
+
 
 }
