@@ -239,9 +239,13 @@ public class Jugador {
 							encontradobarco = true;
 							encontradacasilla = true;
 						}
-						j++;
+						if(!encontradacasilla) {
+							j++;
+						}
 					}
-					i++;
+					if(!encontradobarco) {
+						i++;
+					}
 				}
 				
 				jugadordefensa.getBarcosPuestos().get(i).getCoordenadas().remove(j);
