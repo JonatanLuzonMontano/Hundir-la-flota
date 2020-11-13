@@ -10,10 +10,13 @@ public class Directa implements Coordenadas{
 
 	private Integer direccion;
 	
+	private int longitud;
+	
 	public Directa(InterfazTeclado teclado) {
 		x = -1;
 		y = -1;
 		direccion = -1;
+		longitud = -1;
 		this.teclado = teclado;
 	}
 
@@ -73,9 +76,24 @@ public class Directa implements Coordenadas{
 			direccion = -1;
 		}
 	}
+	
+	public void setLongitud(int maximo) throws IOException {
+		// TODO Auto-generated method stub
+		int lenght = Integer.parseInt(teclado.introducirCoordenada());
+		if(lenght >= 1 && lenght <= maximo) {
+			longitud = lenght;
+		} else {
+			longitud = -1;
+		}
+	}
 
 	public int getDireccion() {
 		// TODO Auto-generated method stub
 		return direccion;
+	}
+
+	public int getLongitud() {
+		// TODO Auto-generated method stub
+		return longitud;
 	}	
 }

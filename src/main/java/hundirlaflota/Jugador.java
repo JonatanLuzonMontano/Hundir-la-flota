@@ -79,6 +79,10 @@ public class Jugador {
 		}
 	}
 	
+	public void ponerBarcos() throws IOException {
+
+	}
+	
 	public void ponerBarco(int longitud) throws IOException {
 		boolean coordenadacorrecta = false;
 		boolean puedeponerse = false;
@@ -265,6 +269,75 @@ public class Jugador {
 		
 		System.out.print(mensaje);
 		
+	}
+	
+	public void imprimirTableros() throws IOException {
+		
+		for(int i = 0; i < 100; i++) {
+			System.out.print("\n");
+		}
+		
+		System.out.print(" ");
+		for(int i = 0; i < 10; i++) {
+			System.out.print(" " + (i+1));
+		}
+		
+		System.out.print("\n");
+		
+		for(int i = 0; i < 10; i++) {
+			System.out.print(Character.toString((char) i+65));
+			for(int j = 0; j < 10; j++) {
+				switch(this.getTableroataque().getCasilla(i, j)) {
+					case 0:
+						System.out.print(" ·");
+						break;
+					case 1:
+						System.out.print(" ~");
+						break;
+					case 2:
+						System.out.print(" *");
+						break;
+				}
+			}
+			System.out.print("\n");
+		}
+		
+		System.out.print("\n");
+		
+		System.out.print(" ");
+		for(int i = 0; i < 10; i++) {
+			System.out.print(" " + (i+1));
+		}
+		
+		System.out.print("\n");
+		
+		for(int i = 0; i < 10; i++) {
+			System.out.print(Character.toString((char) i+65));
+			for(int j = 0; j < 10; j++) {
+				switch(this.getTableroataque().getCasilla(i, j)) {
+					case 0:
+						System.out.print(" ~");
+						break;
+					case 1:
+						System.out.print(" +");
+						break;
+					case 2:
+						System.out.print(" *");
+						break;
+				}
+			}
+			System.out.print("\n");
+		}
+		System.out.print("\n");
+		
+	}
+	
+	public void pedirLongitud() throws IOException {
+		((Directa) coord).setLongitud(this.barcossinponer.size());
+	}
+	
+	public int getLongitud() {
+		return ((Directa) coord).getLongitud();
 	}
 	
 	public boolean[] getDirecciones() {

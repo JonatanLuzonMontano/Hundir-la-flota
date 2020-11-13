@@ -8,10 +8,7 @@ import java.util.ArrayList;
 import org.junit.jupiter.api.Test;
 
 import hundirlaflota.Barco;
-import hundirlaflota.Directa;
-import hundirlaflota.InterfazTablero;
 import hundirlaflota.Jugador;
-import hundirlaflota.Tablero;
 import hundirlaflota.Teclado;
 
 class JugadorTest {
@@ -702,6 +699,28 @@ class JugadorTest {
 			}
 		}
 		
+	}
+	
+
+	@Test
+	void ponerBarcos() throws IOException {
+		ArrayList<String> coord = new ArrayList<String>();
+		coord.add("4");
+		coord.add("a1");
+		coord.add("1");
+		coord.add("3");
+		coord.add("b1");
+		coord.add("2");
+		coord.add("1");
+		coord.add("j10");
+		coord.add("2");
+		coord.add("1");
+		coord.add("e5");
+		coord.add("1");
+		Jugador j = new Jugador(new MockTeclado(coord));
+		j.ponerBarcos();
+		assertTrue(j.getBarcoSinPoner().isEmpty());
+		assertEquals(j.getBarcosPuestos().size(), 4);
 	}
 
 }
