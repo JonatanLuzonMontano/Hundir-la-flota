@@ -80,7 +80,17 @@ public class Jugador {
 	}
 	
 	public void ponerBarcos() throws IOException {
-
+		int bucle = 0;
+		while(getBarcoSinPoner().size() > 0) {
+			while(bucle < getBarcoSinPoner().size()) {
+				System.out.println((bucle + 1) + "- Longitud " + getBarcoSinPoner().get(bucle).getLongitud());
+				bucle ++;
+			}
+			System.out.println("\nQue barco quieres poner?");
+			pedirLongitud();
+			ponerBarco(getBarcoSinPoner().get(getLongitud() - 1).getLongitud());
+			bucle = 0;
+		}
 	}
 	
 	public void ponerBarco(int longitud) throws IOException {
