@@ -282,7 +282,13 @@ public class Jugador {
 	}
 	
 	public boolean comprobarDerrota() {
-		return false;
+		boolean flag = true;
+		for(int i = 0; i < this.getBarcosPuestos().size(); i++) {
+			if(!this.getBarcosPuestos().get(i).getCoord().isEmpty()) {
+				flag = false;
+			}
+		}
+		return flag;
 	}
 	
 	public void imprimirTableros() throws IOException {

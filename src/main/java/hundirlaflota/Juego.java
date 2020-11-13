@@ -25,7 +25,7 @@ public class Juego {
 		while(!findeljuego) {
 			jugadores.get(0).disparar(jugadores.get(1));
 			
-			if(jugadores.get(1))
+			//if(jugadores.get(1))
 			
 		}
 	}

@@ -16,6 +16,10 @@ public class Barco {
 		return longitud;
 	}
 	
+	public ArrayList<Coordenadas> getCoord() {
+		return coord;
+	}
+
 	public void añadirCoordenada(int x, int y) {
 		coord.add(new CoordenadaBarco(x, y));
 	}
