@@ -469,27 +469,32 @@ class JugadorTest {
 		
 		jugadordefensa.setBarcoPuestos(listabarcos);
 		
-		jugadorataque.disparar();
+		jugadorataque.disparar(jugadordefensa);
 		assertEquals(jugadorataque.getTableroataque().getCasilla(0, 0), 1);
-		jugadorataque.disparar();
+		jugadorataque.disparar(jugadordefensa);
 		assertEquals(jugadorataque.getTableroataque().getCasilla(4, 3), 1);
-		jugadorataque.disparar();
+		jugadorataque.disparar(jugadordefensa);
 		assertEquals(jugadorataque.getTableroataque().getCasilla(7, 8), 1);
-		jugadorataque.disparar();
+		jugadorataque.disparar(jugadordefensa);
 		assertEquals(jugadorataque.getTableroataque().getCasilla(0, 3), 2);
 		assertEquals(jugadordefensa.getBarcosPuestos().get(0).getCoordenadas().size(), 1);
-		jugadorataque.disparar();
+		assertEquals(jugadordefensa.getTablerodefensa().getCasilla(0, 3), 2);
+		jugadorataque.disparar(jugadordefensa);
 		assertEquals(jugadorataque.getTableroataque().getCasilla(0, 4), 2);
 		assertEquals(jugadordefensa.getBarcosPuestos().get(0).getCoordenadas().size(), 0);
-		jugadorataque.disparar();
+		assertEquals(jugadordefensa.getTablerodefensa().getCasilla(0, 4), 2);
+		jugadorataque.disparar(jugadordefensa);
 		assertEquals(jugadorataque.getTableroataque().getCasilla(9, 9), 2);
 		assertEquals(jugadordefensa.getBarcosPuestos().get(3).getCoordenadas().size(), 4);
-		jugadorataque.disparar();
+		assertEquals(jugadordefensa.getTablerodefensa().getCasilla(9, 9), 2);
+		jugadorataque.disparar(jugadordefensa);
 		assertEquals(jugadorataque.getTableroataque().getCasilla(6, 2), 2);
 		assertEquals(jugadordefensa.getBarcosPuestos().get(0).getCoordenadas().size(), 3);
-		jugadorataque.disparar();
+		assertEquals(jugadordefensa.getTablerodefensa().getCasilla(6, 2), 2);
+		jugadorataque.disparar(jugadordefensa);
 		assertEquals(jugadorataque.getTableroataque().getCasilla(6, 3), 2);
 		assertEquals(jugadordefensa.getBarcosPuestos().get(0).getCoordenadas().size(), 2);
+		assertEquals(jugadordefensa.getTablerodefensa().getCasilla(6, 3), 2);
 		
 		
 	}

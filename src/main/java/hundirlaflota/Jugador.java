@@ -197,8 +197,20 @@ public class Jugador {
 		}
 	}
 
-	public void disparar() {
-		// TODO Auto-generated method stub
+	public void disparar(Jugador jugadordefensa) throws IOException {
+		
+		boolean coordenadacorrecta = false;
+		while(!coordenadacorrecta) {
+			coord.setCoordenada();
+			if(coord.getCoordenadaX() != -1 && coord.getCoordenadaY() != -1) {
+				coordenadacorrecta = true;
+			} else {
+				System.out.print("Coordenada incorrecta (inexistente o fuera del tablero). "
+						+ "Vueve a introducir la coordenada: \n");
+			}
+		}
+		
+		
 		
 	}
 	
