@@ -722,5 +722,58 @@ class JugadorTest {
 		assertTrue(j.getBarcoSinPoner().isEmpty());
 		assertEquals(j.getBarcosPuestos().size(), 4);
 	}
+	
+	@Test
+	void comprovarDerrota() throws IOException {
+		ArrayList<String> coord1 = new ArrayList<String>();
+		coord1.add("4");
+		coord1.add("a1");
+		coord1.add("1");
+		coord1.add("3");
+		coord1.add("b1");
+		coord1.add("2");
+		coord1.add("1");
+		coord1.add("j10");
+		coord1.add("2");
+		coord1.add("1");
+		coord1.add("e5");
+		coord1.add("1");
+		Jugador jugadordefensor = new Jugador(new MockTeclado(coord1));
+		jugadordefensor.ponerBarcos();
+
+		ArrayList<String> coord2 = new ArrayList<String>();
+		coord2.add("a1");
+		coord2.add("a2");
+		coord2.add("a3");
+		coord2.add("a4");
+		coord2.add("a5");
+		coord2.add("b1");
+		coord2.add("c1");
+		coord2.add("d1");
+		coord2.add("e1");
+		coord2.add("j10");
+		coord2.add("j9");
+		coord2.add("e5");
+		coord2.add("d5");
+		coord2.add("c5");
+		Jugador jugadoratacante = new Jugador(new MockTeclado(coord2));
+		jugadoratacante.disparar(jugadordefensor);
+		jugadoratacante.disparar(jugadordefensor);
+		jugadoratacante.disparar(jugadordefensor);
+		jugadoratacante.disparar(jugadordefensor);
+		jugadoratacante.disparar(jugadordefensor);
+		jugadoratacante.disparar(jugadordefensor);
+		jugadoratacante.disparar(jugadordefensor);
+		jugadoratacante.disparar(jugadordefensor);
+		jugadoratacante.disparar(jugadordefensor);
+		jugadoratacante.disparar(jugadordefensor);
+		jugadoratacante.disparar(jugadordefensor);
+		jugadoratacante.disparar(jugadordefensor);
+		jugadoratacante.disparar(jugadordefensor);
+		jugadoratacante.disparar(jugadordefensor);
+		
+		assertTrue(jugadordefensor.comprobarDerrota());
+		
+	}
 
 }

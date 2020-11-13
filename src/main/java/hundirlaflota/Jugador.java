@@ -281,6 +281,10 @@ public class Jugador {
 		
 	}
 	
+	public boolean comprobarDerrota() {
+		return false;
+	}
+	
 	public void imprimirTableros() throws IOException {
 		
 		for(int i = 0; i < 100; i++) {
