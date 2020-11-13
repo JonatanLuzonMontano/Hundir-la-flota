@@ -253,6 +253,8 @@ public class Jugador {
 					mensaje = mensaje + " y HUNDIDO";
 				}
 				
+				jugadordefensa.getTablerodefensa().setCasilla(coord.getCoordenadaX(), coord.getCoordenadaY(), 2);
+				
 				finbucle = true;
 				break;
 			case 2:
