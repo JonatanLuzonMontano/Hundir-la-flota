@@ -1,7 +1,5 @@
 package hundirlaflota;
 
-import java.io.IOException;
-
 public class CoordenadaBarco implements Coordenadas {
 	int x, y;
 	
@@ -22,10 +20,5 @@ public class CoordenadaBarco implements Coordenadas {
 		return y;
 	}
 
-	@Override
-	public void setCoordenada() throws IOException {
-		// TODO Auto-generated method stub
-
-	}
 
 }

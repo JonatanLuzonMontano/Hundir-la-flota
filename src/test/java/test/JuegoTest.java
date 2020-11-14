@@ -6,7 +6,6 @@ import java.util.ArrayList;
 import org.junit.jupiter.api.Test;
 
 import hundirlaflota.Jugador;
-import hundirlaflota.Teclado;
 
 class JuegoTest {
 
@@ -15,6 +14,7 @@ class JuegoTest {
 		ArrayList<String> coord1 = new ArrayList<String>();
 		coord1.add("4");
 		coord1.add("");
+		coord1.add("a-12");
 		coord1.add("E5");
 		coord1.add("4");
 		coord1.add("3");
@@ -40,6 +40,7 @@ class JuegoTest {
 		coord1.add("j10");
 		coord1.add("h1");
 		coord1.add("h2");
+		coord1.add("e12");
 		coord1.add("h3");
 		coord1.add("h4");
 		
@@ -47,6 +48,7 @@ class JuegoTest {
 		coord2.add("5");
 		coord2.add("4");
 		coord2.add("w12");
+		coord2.add("e12");
 		coord2.add("a1");
 		coord2.add("6");
 		coord2.add("!");

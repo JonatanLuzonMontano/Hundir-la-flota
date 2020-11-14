@@ -5,11 +5,11 @@ import java.util.ArrayList;
 
 public class Jugador {
 
-	Coordenadas coord;
-	InterfazTablero tableroataque, tablerodefensa;
-	boolean direcciones[] = {true, true, true, true};
-	ArrayList<Barco> barcossinponer = new ArrayList<Barco>();
-	ArrayList<Barco> barcospuestos = new ArrayList<Barco>();
+	protected Coordenadas coord;
+	protected InterfazTablero tableroataque, tablerodefensa;
+	protected boolean direcciones[] = {true, true, true, true};
+	protected ArrayList<Barco> barcossinponer = new ArrayList<Barco>();
+	protected ArrayList<Barco> barcospuestos = new ArrayList<Barco>();
 	
 	public Jugador(InterfazTeclado teclado) {
 		this.coord = new Directa(teclado);
@@ -110,7 +110,7 @@ public class Jugador {
 		while(!puedeponerse) {
 			coordenadacorrecta = false;
 			while(!coordenadacorrecta) {
-				coord.setCoordenada();
+				((Directa) coord).setCoordenada();
 				if(coord.getCoordenadaX() != -1 && coord.getCoordenadaY() != -1) {
 					coordenadacorrecta = true;
 				} else {
@@ -222,23 +222,32 @@ public class Jugador {
 
 	public void disparar(Jugador jugadordefensa) throws IOException {
 		
-		boolean coordenadacorrecta = false;
 		boolean finbucle = false;
 		String mensaje = "";
+		int casilla;
 
 		System.out.print("Introducir cordenada de disparo:\n");
 		while(!finbucle) {
+			boolean coordenadacorrecta = false;
 			while(!coordenadacorrecta) {
-				coord.setCoordenada();
+				((Directa) coord).setCoordenada();
 				if(coord.getCoordenadaX() != -1 && coord.getCoordenadaY() != -1) {
 					coordenadacorrecta = true;
 				} else {
 					System.out.print("Coordenada incorrecta (inexistente o fuera del tablero). "
-							+ "Vueve 1a introducir la coordenada: \n");
+							+ "Vueve a introducir la coordenada: \n");
 				}
 			}
 			
-			int casilla = jugadordefensa.getTablerodefensa().getCasilla(coord.getCoordenadaX(), coord.getCoordenadaY());
+			System.out.println(coord.getCoordenadaX());
+			System.out.println(coord.getCoordenadaY());
+			System.out.println(this.tableroataque.getCasilla(coord.getCoordenadaX(), coord.getCoordenadaY()));
+			
+			if(this.tableroataque.getCasilla(coord.getCoordenadaX(), coord.getCoordenadaY()) != 0) {
+				casilla = 2;
+			} else {
+				casilla = jugadordefensa.getTablerodefensa().getCasilla(coord.getCoordenadaX(), coord.getCoordenadaY());
+			}
 			
 			switch(casilla) {
 			case 0:
@@ -300,10 +309,6 @@ public class Jugador {
 	}
 	
 	public void imprimirTableros() throws IOException {
-		
-		/*for(int i = 0; i < 100; i++) {
-			System.out.print("\n");
-		}*/
 		
 		System.out.print(" ");
 		for(int i = 0; i < 10; i++) {
@@ -368,44 +373,20 @@ public class Jugador {
 		return ((Directa) coord).getLongitud();
 	}
 	
-	public boolean[] getDirecciones() {
-		return direcciones;
-	}
-	
-	public void setDirecciones(boolean[] newdirecciones) {
-		direcciones = newdirecciones;
-	}
-	
 	public InterfazTablero getTableroataque() {
 		return tableroataque;
 	}
 
-	public void setTableroataque(InterfazTablero tableroataque) {
-		this.tableroataque = tableroataque;
-	}
-
 	public InterfazTablero getTablerodefensa() {
 		return tablerodefensa;
-	}
-
-	public void setTablerodefensa(InterfazTablero tablerodefensa) {
-		this.tablerodefensa = tablerodefensa;
 	}
 	
 	public ArrayList<Barco> getBarcoSinPoner() {
 		return this.barcossinponer;
 	}
 	
-	public void setBarcoSinPoner(ArrayList<Barco> listabarcos) {
-		this.barcossinponer = listabarcos;
-	}
-	
 	public ArrayList<Barco> getBarcosPuestos() {
 		return this.barcospuestos;
-	}
-	
-	public void setBarcoPuestos(ArrayList<Barco> listabarcos) {
-		this.barcospuestos = listabarcos;
 	}
 
 

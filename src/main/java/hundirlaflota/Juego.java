@@ -6,6 +6,7 @@ import java.util.ArrayList;
 public class Juego {
 
 	public static void main(String[] args) throws IOException {
+
 		// TODO Auto-generated method stub
 		Jugador j1 = new Jugador(new Teclado());
 		Jugador j2 = new Jugador(new Teclado());

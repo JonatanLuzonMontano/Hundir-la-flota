@@ -17,7 +17,7 @@ class JugadorTest {
 	void inicializarDirecciones() throws IOException {
 		ArrayList<String> coord = new ArrayList<String>();
 		coord.add("a1");
-		Jugador j = new Jugador(new MockTeclado(coord));
+		MockJugador j = new MockJugador(new MockTeclado(coord));
 		j.comprovarDireccion(2, 0, 0);
 		j.inicializarDirecciones();
 		
@@ -31,7 +31,7 @@ class JugadorTest {
 	@Test
 	void comprovarDireccion() throws IOException {
 		
-		Jugador j = new Jugador(new Teclado());
+		MockJugador j = new MockJugador(new Teclado());
 
 		//Barco longitud 2
 		//a1
@@ -266,7 +266,7 @@ class JugadorTest {
 								  {0,0,0,0,1,0,0,0,1,0}};
 		
 		boolean nuevasdirecciones[] = new boolean[4];
-		Jugador j = new Jugador(new Teclado());
+		MockJugador j = new MockJugador(new Teclado());
 		j.setTablerodefensa(new MockTablero(tablerodefensa));
 
 		
@@ -428,8 +428,8 @@ class JugadorTest {
 		coord.add("j10");
 		coord.add("g3");
 		coord.add("g4");
-		Jugador jugadorataque = new Jugador(new MockTeclado(coord));
-		Jugador jugadordefensa = new Jugador(new MockTeclado(coord));
+		MockJugador jugadorataque = new MockJugador(new MockTeclado(coord));
+		MockJugador jugadordefensa = new MockJugador(new MockTeclado(coord));
 		
 		jugadorataque.setTableroataque(new MockTablero(tableroataque));
 		jugadordefensa.setTablerodefensa(new MockTablero(tablerodefensa));
@@ -544,7 +544,7 @@ class JugadorTest {
 		coord.add("i3");
 		coord.add("3");
 		
-		Jugador j = new Jugador(new MockTeclado(coord));
+		MockJugador j = new MockJugador(new MockTeclado(coord));
 		j.setTablerodefensa(new MockTablero(tablerodefensabase2));
 		j.ponerBarco(2);
 		assertEquals(j.getBarcosPuestos().size(), 1);
@@ -717,7 +717,7 @@ class JugadorTest {
 		coord.add("1");
 		coord.add("e5");
 		coord.add("1");
-		Jugador j = new Jugador(new MockTeclado(coord));
+		MockJugador j = new MockJugador(new MockTeclado(coord));
 		j.ponerBarcos();
 		assertTrue(j.getBarcoSinPoner().isEmpty());
 		assertEquals(j.getBarcosPuestos().size(), 4);
@@ -738,7 +738,7 @@ class JugadorTest {
 		coord1.add("1");
 		coord1.add("e5");
 		coord1.add("1");
-		Jugador jugadordefensor = new Jugador(new MockTeclado(coord1));
+		MockJugador jugadordefensor = new MockJugador(new MockTeclado(coord1));
 		jugadordefensor.ponerBarcos();
 
 		ArrayList<String> coord2 = new ArrayList<String>();
