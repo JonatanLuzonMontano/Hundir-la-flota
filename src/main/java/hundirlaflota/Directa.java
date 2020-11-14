@@ -70,9 +70,13 @@ public class Directa implements Coordenadas{
 	public void setDireccion() throws IOException {
 		// TODO Auto-generated method stub
 		int dir = Integer.parseInt(teclado.introducirCoordenada());
-		if(dir >= 1 && dir <= 4) {
-			direccion = dir;
-		} else {
+		try {
+			if(dir >= 1 && dir <= 4) {
+				direccion = dir;
+			} else {
+				direccion = -1;
+			}
+		} catch (Exception e) {
 			direccion = -1;
 		}
 	}
