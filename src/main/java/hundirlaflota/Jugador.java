@@ -81,25 +81,34 @@ public class Jugador {
 	
 	public void ponerBarcos() throws IOException {
 		int bucle = 0;
-		while(getBarcoSinPoner().size() > 0) {
+		while(!getBarcoSinPoner().isEmpty()) {
 			while(bucle < getBarcoSinPoner().size()) {
 				System.out.println((bucle + 1) + "- Longitud " + getBarcoSinPoner().get(bucle).getLongitud());
 				bucle ++;
 			}
 			System.out.println("\nQue barco quieres poner?");
-			pedirLongitud();
-			ponerBarco(getBarcoSinPoner().get(getLongitud() - 1).getLongitud());
+			boolean indicecorrecto = false;
+			while(!indicecorrecto) {
+				pedirLongitud();
+				if(((Directa) coord).getLongitud() != -1) {
+					ponerBarco(getBarcoSinPoner().get(getLongitud() - 1).getLongitud());
+					indicecorrecto = true;
+				} else {
+					System.out.println("Indice incorrecto. Vuelve a ponerlo:");
+				}
+			}
+			imprimirTableros();
 			bucle = 0;
 		}
 	}
 	
 	public void ponerBarco(int longitud) throws IOException {
-		boolean coordenadacorrecta = false;
+		boolean coordenadacorrecta;
 		boolean puedeponerse = false;
 		
-		System.out.print("Introducir cordenada inicia del barco:\n");
+		System.out.print("Introducir cordenada inicial del barco:\n");
 		while(!puedeponerse) {
-
+			coordenadacorrecta = false;
 			while(!coordenadacorrecta) {
 				coord.setCoordenada();
 				if(coord.getCoordenadaX() != -1 && coord.getCoordenadaY() != -1) {
@@ -225,7 +234,7 @@ public class Jugador {
 					coordenadacorrecta = true;
 				} else {
 					System.out.print("Coordenada incorrecta (inexistente o fuera del tablero). "
-							+ "Vueve a introducir la coordenada: \n");
+							+ "Vueve 1a introducir la coordenada: \n");
 				}
 			}
 			
@@ -234,13 +243,12 @@ public class Jugador {
 			switch(casilla) {
 			case 0:
 				this.getTableroataque().setCasilla(coord.getCoordenadaX(), coord.getCoordenadaY(), casilla + 1);
-				mensaje = "Agua\n";
+				mensaje = "Agua";
 				finbucle = true;
 				break;
 			case 1:
 				this.getTableroataque().setCasilla(coord.getCoordenadaX(), coord.getCoordenadaY(), casilla + 1);
 				mensaje = "Tocado";
-				
 				int i = 0;
 				int j = 0;
 				boolean encontradobarco = false;
@@ -263,7 +271,7 @@ public class Jugador {
 				}
 				
 				jugadordefensa.getBarcosPuestos().get(i).getCoordenadas().remove(j);
-				if(jugadordefensa.getBarcosPuestos().get(i).getCoordenadas().size() == 0) {
+				if(jugadordefensa.getBarcosPuestos().get(i).getCoordenadas().isEmpty()) {
 					mensaje = mensaje + " y HUNDIDO";
 				}
 				
@@ -272,12 +280,12 @@ public class Jugador {
 				finbucle = true;
 				break;
 			case 2:
-				System.out.print("Ya has disparado aquí. vuelve a disparar");
+				System.out.println("Ya has disparado aquí. vuelve a disparar");
 				break;
 			}
 		}
-		
-		System.out.print(mensaje);
+
+		System.out.print(mensaje + "\n");
 		
 	}
 	
@@ -293,9 +301,9 @@ public class Jugador {
 	
 	public void imprimirTableros() throws IOException {
 		
-		for(int i = 0; i < 100; i++) {
+		/*for(int i = 0; i < 100; i++) {
 			System.out.print("\n");
-		}
+		}*/
 		
 		System.out.print(" ");
 		for(int i = 0; i < 10; i++) {
@@ -334,7 +342,7 @@ public class Jugador {
 		for(int i = 0; i < 10; i++) {
 			System.out.print(Character.toString((char) i+65));
 			for(int j = 0; j < 10; j++) {
-				switch(this.getTableroataque().getCasilla(i, j)) {
+				switch(this.getTablerodefensa().getCasilla(i, j)) {
 					case 0:
 						System.out.print(" ~");
 						break;

@@ -23,9 +23,17 @@ public class Juego {
 		jugadores.get(1).ponerBarcos();
 		
 		while(!findeljuego) {
+
+			jugadores.get(0).imprimirTableros();
 			jugadores.get(0).disparar(jugadores.get(1));
 			
-			//if(jugadores.get(1))
+			if(jugadores.get(1).comprobarDerrota()) {
+				System.out.println("HAS GANADO");
+				findeljuego = true;
+			}
+			
+			jugadores.add(jugadores.get(0));
+			jugadores.remove(0);
 			
 		}
 	}

@@ -79,10 +79,15 @@ public class Directa implements Coordenadas{
 	
 	public void setLongitud(int maximo) throws IOException {
 		// TODO Auto-generated method stub
-		int lenght = Integer.parseInt(teclado.introducirCoordenada());
-		if(lenght >= 1 && lenght <= maximo) {
-			longitud = lenght;
-		} else {
+		try {
+			
+			int lenght = Integer.parseInt(teclado.introducirCoordenada());
+			if(lenght >= 1 && lenght <= maximo) {
+				longitud = lenght;
+			} else {
+				longitud = -1;
+			}
+		} catch (Exception e) {
 			longitud = -1;
 		}
 	}
