@@ -13,7 +13,7 @@ public class MockTeclado implements InterfazTeclado{
 		this.inputs = coord;
 	}
 	
-	public String introducirCoordenada() {
+	public String introducirDatos() {
 		return inputs.remove(0);
 	}
 }

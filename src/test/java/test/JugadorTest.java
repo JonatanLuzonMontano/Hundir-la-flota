@@ -11,10 +11,16 @@ import hundirlaflota.Barco;
 import hundirlaflota.Jugador;
 import hundirlaflota.Teclado;
 
+/**
+ * Test de la case Jugador
+ * @author Jonatán Luzón Montaño 1281175
+ *
+ */
 class JugadorTest {
 	
+	//Comprovamos que se inicializa bien la matriz
 	@Test
-	void inicializarDirecciones() throws IOException {
+	void inicializarDirecciones() throws IOException { 
 		ArrayList<String> coord = new ArrayList<String>();
 		coord.add("a1");
 		MockJugador j = new MockJugador(new MockTeclado(coord));
@@ -28,6 +34,7 @@ class JugadorTest {
 		
 	}
 	
+	//valores límite, frontera y partición equivalente
 	@Test
 	void comprovarDireccion() throws IOException {
 		
@@ -252,6 +259,7 @@ class JugadorTest {
 		assertTrue(j.getDirecciones()[3]);
 	}
 	
+	//valores límite, frontera y partición equivalente
 	@Test
 	void comprobarObstaculos() throws IOException {
 		int tablerodefensa[][] = {{0,1,0,0,0,0,0,0,0,0},
@@ -392,6 +400,7 @@ class JugadorTest {
 		
 	}
 
+	//valores límite, frontera y partición equivalente
 	@Test
 	void disparar() throws IOException {
 		
@@ -474,28 +483,29 @@ class JugadorTest {
 		assertEquals(jugadorataque.getTableroataque().getCasilla(7, 8), 1);
 		jugadorataque.disparar(jugadordefensa);
 		assertEquals(jugadorataque.getTableroataque().getCasilla(0, 3), 2);
-		assertEquals(jugadordefensa.getBarcosPuestos().get(0).getCoordenadas().size(), 1);
+		assertEquals(jugadordefensa.getBarcosPuestos().get(0).getCoord().size(), 1);
 		assertEquals(jugadordefensa.getTablerodefensa().getCasilla(0, 3), 2);
 		jugadorataque.disparar(jugadordefensa);
 		assertEquals(jugadorataque.getTableroataque().getCasilla(0, 4), 2);
-		assertEquals(jugadordefensa.getBarcosPuestos().get(0).getCoordenadas().size(), 0);
+		assertEquals(jugadordefensa.getBarcosPuestos().get(0).getCoord().size(), 0);
 		assertEquals(jugadordefensa.getTablerodefensa().getCasilla(0, 4), 2);
 		jugadorataque.disparar(jugadordefensa);
 		assertEquals(jugadorataque.getTableroataque().getCasilla(9, 9), 2);
-		assertEquals(jugadordefensa.getBarcosPuestos().get(3).getCoordenadas().size(), 4);
+		assertEquals(jugadordefensa.getBarcosPuestos().get(3).getCoord().size(), 4);
 		assertEquals(jugadordefensa.getTablerodefensa().getCasilla(9, 9), 2);
 		jugadorataque.disparar(jugadordefensa);
 		assertEquals(jugadorataque.getTableroataque().getCasilla(6, 2), 2);
-		assertEquals(jugadordefensa.getBarcosPuestos().get(2).getCoordenadas().size(), 3);
+		assertEquals(jugadordefensa.getBarcosPuestos().get(2).getCoord().size(), 3);
 		assertEquals(jugadordefensa.getTablerodefensa().getCasilla(6, 2), 2);
 		jugadorataque.disparar(jugadordefensa);
 		assertEquals(jugadorataque.getTableroataque().getCasilla(6, 3), 2);
-		assertEquals(jugadordefensa.getBarcosPuestos().get(2).getCoordenadas().size(), 2);
+		assertEquals(jugadordefensa.getBarcosPuestos().get(2).getCoord().size(), 2);
 		assertEquals(jugadordefensa.getTablerodefensa().getCasilla(6, 3), 2);
 		
 		
 	}
 	
+	//valores límite, frontera y partición equivalente
 	@Test
 	void ponerBarco() throws IOException {
 		int tablerodefensabase[][] = {{0,1,0,0,0,0,0,0,0,0},
@@ -701,7 +711,7 @@ class JugadorTest {
 		
 	}
 	
-
+	//valores límite, frontera y partición equivalente
 	@Test
 	void ponerBarcos() throws IOException {
 		ArrayList<String> coord = new ArrayList<String>();
@@ -723,6 +733,7 @@ class JugadorTest {
 		assertEquals(j.getBarcosPuestos().size(), 4);
 	}
 	
+	//valores límite, frontera y partición equivalente
 	@Test
 	void comprovarDerrota() throws IOException {
 		ArrayList<String> coord1 = new ArrayList<String>();

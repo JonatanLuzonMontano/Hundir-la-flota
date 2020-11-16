@@ -7,8 +7,15 @@ import org.junit.jupiter.api.Test;
 
 import hundirlaflota.Jugador;
 
+/**
+ * Test de la clase Juego
+ * @author Jonatán Luzón Montaño 1281175
+ *
+ */
 class JuegoTest {
 
+	//test para comprovar el Statement coverage del código. también está impentado el
+	//decision y condition coverage 
 	@Test
 	public void Juego1() throws IOException {
 		ArrayList<String> coord1 = new ArrayList<String>();
@@ -46,6 +53,7 @@ class JuegoTest {
 		
 		ArrayList<String> coord2 = new ArrayList<String>();
 		coord2.add("5");
+		coord2.add("¿");
 		coord2.add("4");
 		coord2.add("w12");
 		coord2.add("e12");

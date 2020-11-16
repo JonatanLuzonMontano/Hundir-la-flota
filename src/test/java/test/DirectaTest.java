@@ -9,10 +9,17 @@ import org.junit.Test;
 
 import hundirlaflota.Directa;
 
+
+/**
+ * Test de la clase Directa
+ * @author Jonatán Luzón Montaño
+ *
+ */
 public class DirectaTest {
 
+	//valores límite, frontera y partición equivalente
 	@Test
-	public void setCoordenada() throws IOException {
+	public void setCoordenada() throws IOException { 
 		ArrayList<String> coord = new ArrayList<String>();
 		coord.add("A1");
 		coord.add("A10");
@@ -205,55 +212,169 @@ public class DirectaTest {
 		assertEquals(d.getCoordenadaY(), -1);
 	}
 	
+	//valores límite, frontera y partición equivalente
 	@Test
-	public void setDireccion() throws IOException {
-		ArrayList<String> dir = new ArrayList<String>();
+	public void setDireccion() throws IOException { 
 		
-		dir.add("-3");
-		dir.add("-1");
-		dir.add("0");
-		dir.add("1");
-		dir.add("2");
-		dir.add("3");
-		dir.add("4");
-		dir.add("5");
-		dir.add("8");
-		dir.add("a");
-		dir.add("A");
-		dir.add("¿");
-		dir.add("!");
-		dir.add("hola");
+		ArrayList<String> dir1 = new ArrayList<String>();
+		dir1.add("-3");
+		dir1.add("-1");
+		dir1.add("0");
+		dir1.add("1");
+		dir1.add("2");
+		dir1.add("3");
+		dir1.add("4");
+		dir1.add("5");
+		dir1.add("8");
+		dir1.add("a");
+		dir1.add("A");
+		dir1.add("¿");
+		dir1.add("!");
+		dir1.add("hola");
 		
-		Directa d = new Directa(new MockTeclado(dir));
+		Directa d = new Directa(new MockTeclado(dir1));
 		
-		d.setDireccion();
+		d.setDireccion(4);
 		assertEquals(d.getDireccion(), -1);
-		d.setDireccion();
+		d.setDireccion(4);
 		assertEquals(d.getDireccion(), -1);
-		d.setDireccion();
+		d.setDireccion(4);
 		assertEquals(d.getDireccion(), -1);
-		d.setDireccion();
+		d.setDireccion(4);
 		assertEquals(d.getDireccion(), 1);
-		d.setDireccion();
+		d.setDireccion(4);
 		assertEquals(d.getDireccion(), 2);
-		d.setDireccion();
+		d.setDireccion(4);
 		assertEquals(d.getDireccion(), 3);
-		d.setDireccion();
+		d.setDireccion(4);
 		assertEquals(d.getDireccion(), 4);
-		d.setDireccion();
+		d.setDireccion(4);
 		assertEquals(d.getDireccion(), -1);
-		d.setDireccion();
+		d.setDireccion(4);
 		assertEquals(d.getDireccion(), -1);
-		d.setDireccion();
+		d.setDireccion(4);
 		assertEquals(d.getDireccion(), -1);
-		d.setDireccion();
+		d.setDireccion(4);
 		assertEquals(d.getDireccion(), -1);
-		d.setDireccion();
+		d.setDireccion(4);
 		assertEquals(d.getDireccion(), -1);
-		d.setDireccion();
+		d.setDireccion(4);
 		assertEquals(d.getDireccion(), -1);
-		d.setDireccion();
+		d.setDireccion(4);
 		assertEquals(d.getDireccion(), -1);
+	}
+	
+	//valores límite, frontera y partición equivalente
+	@Test
+	public void setLongitud() throws IOException { 
+		ArrayList<String> longitud = new ArrayList<String>();
+		
+		longitud.add("-3");
+		longitud.add("-1");
+		longitud.add("0");
+		longitud.add("1");
+		longitud.add("2");
+		longitud.add("4");
+		longitud.add("a");
+		longitud.add("A");
+		longitud.add("¿");
+		longitud.add("!");
+		longitud.add("hola");
+		
+		Directa d = new Directa(new MockTeclado(longitud));
+		
+		d.setLongitud(1);
+		assertEquals(d.getLongitud(), -1);
+		d.setLongitud(1);
+		assertEquals(d.getLongitud(), -1);
+		d.setLongitud(1);
+		assertEquals(d.getLongitud(), -1);
+		d.setLongitud(1);
+		assertEquals(d.getLongitud(), 1);
+		d.setLongitud(1);
+		assertEquals(d.getLongitud(), -1);
+		d.setLongitud(1);
+		assertEquals(d.getLongitud(), -1);
+		d.setLongitud(1);
+		assertEquals(d.getLongitud(), -1);
+		d.setLongitud(1);
+		assertEquals(d.getLongitud(), -1);
+		d.setLongitud(1);
+		assertEquals(d.getLongitud(), -1);
+		d.setLongitud(1);
+		assertEquals(d.getLongitud(), -1);
+		d.setLongitud(1);
+		assertEquals(d.getLongitud(), -1);
+
+		longitud.add("-1");
+		longitud.add("0");
+		longitud.add("1");
+		longitud.add("2");
+		longitud.add("3");
+		longitud.add("4");
+
+		d.setLongitud(2);
+		assertEquals(d.getLongitud(), -1);
+		d.setLongitud(2);
+		assertEquals(d.getLongitud(), -1);
+		d.setLongitud(2);
+		assertEquals(d.getLongitud(), 1);
+		d.setLongitud(2);
+		assertEquals(d.getLongitud(), 2);
+		d.setLongitud(2);
+		assertEquals(d.getLongitud(), -1);
+		d.setLongitud(2);
+		assertEquals(d.getLongitud(), -1);
+		
+		longitud.add("-1");
+		longitud.add("0");
+		longitud.add("1");
+		longitud.add("2");
+		longitud.add("3");
+		longitud.add("4");
+		longitud.add("5");
+
+		d.setLongitud(3);
+		assertEquals(d.getLongitud(), -1);
+		d.setLongitud(3);
+		assertEquals(d.getLongitud(), -1);
+		d.setLongitud(3);
+		assertEquals(d.getLongitud(), 1);
+		d.setLongitud(3);
+		assertEquals(d.getLongitud(), 2);
+		d.setLongitud(3);
+		assertEquals(d.getLongitud(), 3);
+		d.setLongitud(3);
+		assertEquals(d.getLongitud(), -1);
+		d.setLongitud(3);
+		assertEquals(d.getLongitud(), -1);
+		
+		longitud.add("-1");
+		longitud.add("0");
+		longitud.add("1");
+		longitud.add("2");
+		longitud.add("3");
+		longitud.add("4");
+		longitud.add("5");
+		longitud.add("6");
+		
+		d.setLongitud(4);
+		assertEquals(d.getLongitud(), -1);
+		d.setLongitud(4);
+		assertEquals(d.getLongitud(), -1);
+		d.setLongitud(4);
+		assertEquals(d.getLongitud(), 1);
+		d.setLongitud(4);
+		assertEquals(d.getLongitud(), 2);
+		d.setLongitud(4);
+		assertEquals(d.getLongitud(), 3);
+		d.setLongitud(4);
+		assertEquals(d.getLongitud(), 4);
+		d.setLongitud(4);
+		assertEquals(d.getLongitud(), -1);
+		d.setLongitud(4);
+		assertEquals(d.getLongitud(), -1);
+		
 	}
 
 }

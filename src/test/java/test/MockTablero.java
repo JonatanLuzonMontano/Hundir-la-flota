@@ -24,5 +24,9 @@ public class MockTablero implements InterfazTablero{
 			tablero[fila][columna] = valor;
 		}
 	}
+	
+	public void setTablero(int[][] nuevotablero) {
+		this.tablero = nuevotablero;
+	}
 
 }

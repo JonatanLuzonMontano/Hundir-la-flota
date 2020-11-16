@@ -2,40 +2,37 @@ package hundirlaflota;
 
 import java.io.IOException;
 
+/***
+ * Clase encargada de recibir y guardar todo lo que el usuario ha de introducir por teclado.
+ * @author Jonatán Luzón Montaño 1281175
+ *
+ */
+
 public class Directa implements Coordenadas{
 
-	private int x, y;
+	private int x, y; //coordenadas
 	
-	public InterfazTeclado teclado;
+	public InterfazTeclado teclado; //Clase teclado por donde recibirá los datos
 
-	private Integer direccion;
+	private Integer direccion; //dirección hacia donde se pondrá el barco en el tablero
 	
-	private int longitud;
+	private int indicelongitud; //longitud del barco que se pondrá en el tablero
 	
 	public Directa(InterfazTeclado teclado) {
 		x = -1;
 		y = -1;
 		direccion = -1;
-		longitud = -1;
+		indicelongitud = -1;
 		this.teclado = teclado;
 	}
 
-	@Override
-	public int getCoordenadaX() {
-		// TODO Auto-generated method stub
-		return x;
-	}
-	
-	@Override
-	public int getCoordenadaY() {
-		// TODO Auto-generated method stub
-		return y;
-	}
-
+	//método para insertar la coordenada que deseamos. primero leemos el primer caracter de la cadena
+	//y comprobamos que es una letra válida dentro de las coordenadas. depués leemos el resto de la cadena
+	//y comprobamos que es un número válido
 	public void setCoordenada() throws IOException {
 		// TODO Auto-generated method stub
 		
-		String coord = teclado.introducirCoordenada();
+		String coord = teclado.introducirDatos();
 		try {
 			//insertamos x (o letra de la coordenada)
 			if(((short) coord.charAt(0))>=65 && ((short)coord.charAt(0)<=74)) {
@@ -66,11 +63,12 @@ public class Directa implements Coordenadas{
 		}
 	}
 
-	public void setDireccion() throws IOException {
+	//introducimos la dirección hacia la que queremos poner el barco
+	public void setDireccion(Integer maximo) throws IOException {
 		// TODO Auto-generated method stub
 		try {
-			int dir = Integer.parseInt(teclado.introducirCoordenada());
-			if(dir >= 1 && dir <= 4) {
+			int dir = Integer.parseInt(teclado.introducirDatos());
+			if(dir >= 1 && dir <= maximo) {
 				direccion = dir;
 			} else {
 				direccion = -1;
@@ -80,16 +78,33 @@ public class Directa implements Coordenadas{
 		}
 	}
 	
+	//introducimos la posición dentro de la lista de posibles barcos a poner para saber cual pondremos a continuación
 	public void setLongitud(int maximo) throws IOException {
 		// TODO Auto-generated method stub
-		
-		int lenght = Integer.parseInt(teclado.introducirCoordenada());
-		if(lenght >= 1 && lenght <= maximo) {
-			longitud = lenght;
-		} else {
-			longitud = -1;
+		try {
+			int lenght = Integer.parseInt(teclado.introducirDatos());
+			if(lenght >= 1 && lenght <= maximo) {
+				indicelongitud = lenght;
+			} else {
+				indicelongitud = -1;
+			}
+		} catch (Exception e) {
+			direccion = -1;
 		}
+	}
 
+	//getters
+	
+	@Override
+	public int getCoordenadaX() {
+		// TODO Auto-generated method stub
+		return x;
+	}
+	
+	@Override
+	public int getCoordenadaY() {
+		// TODO Auto-generated method stub
+		return y;
 	}
 
 	public int getDireccion() {
@@ -99,6 +114,6 @@ public class Directa implements Coordenadas{
 
 	public int getLongitud() {
 		// TODO Auto-generated method stub
-		return longitud;
+		return indicelongitud;
 	}	
 }
