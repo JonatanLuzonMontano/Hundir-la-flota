@@ -21,9 +21,8 @@ class JugadorTest {
 	//Comprovamos que se inicializa bien la matriz
 	@Test
 	void inicializarDirecciones() throws IOException { 
-		ArrayList<String> coord = new ArrayList<String>();
-		coord.add("a1");
-		MockJugador j = new MockJugador(new MockTeclado(coord));
+		
+		MockJugador j = new MockJugador(new Teclado());
 		j.comprovarDireccion(2, 0, 0);
 		j.inicializarDirecciones();
 		

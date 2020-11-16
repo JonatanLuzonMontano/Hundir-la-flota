@@ -17,7 +17,7 @@ class JuegoTest {
 	//test para comprovar el Statement coverage del código. también está impentado el
 	//decision y condition coverage 
 	@Test
-	public void Juego1() throws IOException {
+	public void Juego() throws IOException {
 		ArrayList<String> coord1 = new ArrayList<String>();
 		coord1.add("4");
 		coord1.add("");

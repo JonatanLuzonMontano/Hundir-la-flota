@@ -9,6 +9,7 @@ import hundirlaflota.Tablero;
 
 class TableroTest {
 
+	//partición equivalente
 	@Test
 	void contructor() {
 		Tablero t = new Tablero();
@@ -19,6 +20,8 @@ class TableroTest {
 		}
 	}
 	
+	
+	//Partición equivalente y valores límite y frontera
 	@Test
 	void setCasilla() {
 		Tablero t = new Tablero();
